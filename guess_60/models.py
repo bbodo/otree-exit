@@ -21,12 +21,11 @@ See https://en.wikipedia.org/wiki/Guess_2/3_of_the_average
 
 class Constants(BaseConstants):
     players_per_group = 2
-    num_rounds = 2
+    num_rounds = 3
     name_in_url = 'guess_60'
 
     jackpot = c(100)
     guess_max = 100
-    guess_min = 1
 
     instructions_template = 'guess_60/Instructions.html'
 
@@ -56,5 +55,5 @@ class Group(BaseGroup):
 
 
 class Player(BasePlayer):
-    guess = models.PositiveIntegerField(min=Constants.guess_min, max=Constants.guess_max,)
+    guess = models.PositiveIntegerField(max=Constants.guess_max,)
     is_winner = models.BooleanField(initial=False)

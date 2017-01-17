@@ -138,6 +138,12 @@ SESSION_CONFIG_DEFAULTS = {
 
 SESSION_CONFIGS = [
     {
+        'name': 'allais_paradox',
+        'display_name': "Allais Paradox",
+        'num_demo_participants': 1,
+        'app_sequence': ['allais_paradox', 'payment_info']
+    },
+    {
         'name': 'public_goods',
         'display_name': "Public Goods",
         'num_demo_participants': 3,

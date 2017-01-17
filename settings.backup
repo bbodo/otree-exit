@@ -68,24 +68,24 @@ INSTALLED_APPS = ['otree']
 
 # SENTRY_DSN = ''
 
-# DEMO_PAGE_INTRO_TEXT = """
-# <ul>
-#     <li>
-#         <a href="https://github.com/oTree-org/otree" target="_blank">
-#             oTree on GitHub
-#         </a>.
-#     </li>
-#     <li>
-#         <a href="http://www.otree.org/" target="_blank">
-#             oTree homepage
-#         </a>.
-#     </li>
-# </ul>
-# <p>
-#     Here are various games implemented with oTree. These games are all open
-#     source, and you can modify them as you wish.
-# </p>
-# """
+DEMO_PAGE_INTRO_TEXT = """
+<ul>
+    <li>
+        <a href="https://github.com/oTree-org/otree" target="_blank">
+            oTree on GitHub
+        </a>.
+    </li>
+    <li>
+        <a href="http://www.otree.org/" target="_blank">
+            oTree homepage
+        </a>.
+    </li>
+</ul>
+<p>
+    Here are various games implemented with oTree. These games are all open
+    source, and you can modify them as you wish.
+</p>
+"""
 
 ROOMS = [
     {

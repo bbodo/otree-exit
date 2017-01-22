@@ -26,21 +26,12 @@ class Player(BasePlayer):
 
     gamble_1 = models.CharField(
         initial=None,
-        choices=['Gamble A', 'Gamble B'],
-        verbose_name='''
-        A: 66% chance for a payoff of 2400, 33% chance for a payoff of 2500,
-        1% chance for a payoff of 0, e.g. no payoff at all.
-        B: 100% chance for a payoff of 2400.
-        ''',
+        choices=['Option A', 'Gamble B'],
+        verbose_name='''Please choose your desired option''',
         widget=widgets.RadioSelect())
 
     gamble_2 = models.CharField(
         initial=None,
         choices=['Gamble A', 'Gamble B'],
-        verbose_name='''
-        A: 67% chance for a payoff of 0, e.g. no payoff at all.
-        33% chance for a payoff of 2500. 
-        B: 66% chance for a payoff of 0, e.g. no payoff at all.
-        34% chance of a payoff of 2400.
-        ''',
+        verbose_name='''Please choose your desired option''',
         widget=widgets.RadioSelect())

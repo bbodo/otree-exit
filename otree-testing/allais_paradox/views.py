@@ -6,12 +6,12 @@ from .models import Constants
 
 class Gamble_1(Page):
     form_model = models.Player
-    form_fields = ['choice_1',]
+    form_fields = ['gamble_1',]
 
 
 class Gamble_2(Page):
     form_model = models.Player
-    form_fields = ['choice_2',]
+    form_fields = ['gamble_2',]
 
     def before_next_page(self):
         self.player.set_payoff()

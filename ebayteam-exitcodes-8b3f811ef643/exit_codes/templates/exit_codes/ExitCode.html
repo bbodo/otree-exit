@@ -1,0 +1,22 @@
+{% extends "global/Base.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+    Exit Code Generation
+{% endblock %}
+
+{% block content %}
+    <p>
+    Your Exit Code is: <br>
+    <pre>{{exit_code}}</pre>
+    </p>
+
+    <p>
+    Please make note of this unique code, as it is important to deliver your payoff.
+    <br><br>
+    </p>    
+
+    {% next_button %}
+{% endblock %}
+
+

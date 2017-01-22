@@ -1,6 +1,5 @@
 {% extends "global/Base.html" %}
 {% load staticfiles otree_tags %}
-
 {% block title %}
     Gamble 2
 {% endblock %}
@@ -8,8 +7,43 @@
 {% block content %}
 
     <p>
-        
+        Please choose your desired option.
     </p>
+
+    <table class="table table-inverse">
+        <thead class="thead-inverse">
+            <tr>
+                <th>Option A:</th>
+                <th>Option B:</th>
+             </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                     <b>33%</b> chance for a payoff of <b>2500<b>
+                </td>
+                <td>
+                     <b>34%</b> chance for a payoff of <b>2400</b> 
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <b>67%</b> chance for a payoff of <b>0 - e.g no payoff<b>
+                </td>
+                <td>
+                    <b>66%</b> chance for a payoff of <b>0 - e.g no payoff</b> 
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    -
+                </td>
+                <td>
+                    -
+                </td>
+            </tr>
+        </tbody>
+        </table>
 
     {% for field in form %}
         {% formfield field %}

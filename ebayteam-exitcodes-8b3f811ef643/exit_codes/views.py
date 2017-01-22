@@ -18,7 +18,7 @@ class ResultsWaitPage(WaitPage):
 
 class Results(Page):
     def vars_for_template(self):
-        return {'exit_code' : aes_encrypt(self.participant.code)}
+        return {'exit_code' : aes_encrypt(self.participant.code.encode())}
 
 
 page_sequence = [

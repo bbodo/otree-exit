@@ -5,8 +5,12 @@ from pprint import pprint
 from datetime import datetime
 """
 IMPORTANT: Make sure to install pycrypto python package
+bobrae: pycrypto has been replaced by pycryptodome.
+    now the problem is that this code is written entirely using utf-8 strings
+    we need byte strings - b'' or .encode() - namely the ENCRYPTION_KEY and the 
+    "InitializationVecor" below.
 """
-ENCRYPTION_KEY = 'This is a key124' # ENCRYPTION_KEY should be 16 characters in length
+ENCRYPTION_KEY = b'This is a key124' # ENCRYPTION_KEY should be 16 characters in length
 
 def encrypt_and_save(participants, session_code, url):
     """
@@ -26,12 +30,15 @@ def encrypt_and_save(participants, session_code, url):
             for key, value in code_exit_code.items():
                  out.write(url.strip()+""+key+", "+value+"\n")
 
+"""
+    bobrae : I used .encode on the codes below, to make the code work. 
+"""
 
 def encrypt_participant_codes(codes):
     """
     Encrypt the participants codes
     """
-    return [{code: aes_encrypt(code)} for code in codes]
+    return [{code: aes_encrypt(code.encode())} for code in codes]
 
 
 def aes_encrypt(string):
@@ -41,7 +48,7 @@ def aes_encrypt(string):
     """
     string = string+string # Make the string 16 letters
     if len(string) % 16 == 0:
-        obj = AES.new(ENCRYPTION_KEY, AES.MODE_CBC, 'This is an IV456') # This is an IV
+        obj = AES.new(ENCRYPTION_KEY, AES.MODE_CBC, b'This is an IV456') # This is an IV
         ciphertext = obj.encrypt(string)
         cipher_base64_encoded = base64.b64encode(ciphertext).decode('utf-8')
         return cipher_base64_encoded

@@ -119,6 +119,18 @@ SESSION_CONFIGS = [
         'num_demo_participants': 2,
         'app_sequence': ['exit_codes'],
     },
+    {
+        'name': 'public_goods',
+        'display_name': "Public Goods",
+        'num_demo_participants': 3,
+        'app_sequence': ['public_goods'],
+    },
+    {
+        'name': 'public_goods_exit',
+        'display_name': "Public Goods with AMT Exit Codes",
+        'num_demo_participants': 3,
+        'app_sequence': ['exit_codes', 'public_goods'],
+    },
 ]
 
 # anything you put after the below line will override

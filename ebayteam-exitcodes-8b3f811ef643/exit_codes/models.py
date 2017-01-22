@@ -23,7 +23,7 @@ class Constants(BaseConstants):
 class Subsession(BaseSubsession):
     def before_session_starts(self):
         # Only Change the url to what you want before creating the session in otree
-        encrypt_and_save(self.session.participant_set.all(), self.session.code, "http://coll.mpg.de/public_goods/InitializeParticipant/")
+        encrypt_and_save(self.session.participant_set.all(), self.session.code, "http://127.0.0.1:8000/public_goods/InitializeParticipant/")
    
 
 class Group(BaseGroup):

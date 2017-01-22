@@ -1,0 +1,47 @@
+{% extends "global/Base.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+    Results
+{% endblock %}
+
+{% block content %}
+
+    <p>Here were the numbers guessed:</p>
+
+    <p>
+        {% for e in sorted_guesses %}
+            {{ e }},
+        {% endfor %}
+    </p>
+
+    <p>
+        60% of the average of these numbers is {{group.sixty_percent_avg}};
+        the closest guess was {{ group.best_guess }}
+    </p>
+
+    <p>
+        Your guess was {{ player.guess }}.
+    </p>
+
+    <p>
+        {% if player.is_winner %}
+            {% if group.num_winners > 1 %}
+                Therefore you are one of the {{ group.num_winners }} winners
+                who tied for the best guess.
+            {% else %}
+                Therefore, you win.
+            {% endif %}
+        {% else %}
+            Therefore, you lost.
+        {% endif %}
+    Your payoff is {{ player.payoff }}.
+    </p>
+    
+    {% next_button %}
+    <!-- What does "include constants..." do? -->
+    {% include Constants.instructions_template %}
+
+{% endblock %}
+
+

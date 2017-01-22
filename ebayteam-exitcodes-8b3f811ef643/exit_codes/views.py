@@ -6,23 +6,22 @@ from .models import Constants
 # Import this function to get the exit code for a single player
 from .exit_codes import aes_encrypt
 
-class MyPage(Page):
-    pass
-
-
-class ResultsWaitPage(WaitPage):
+class ExitCodeWaitPage(WaitPage):
 
     def after_all_players_arrive(self):
         pass
 
+"""
+    Cleaned up the pages for less confusion when testing.
+"""
 
-class Results(Page):
+
+class ExitCode(Page):
     def vars_for_template(self):
         return {'exit_code' : aes_encrypt(self.participant.code.encode())}
 
 
 page_sequence = [
-    MyPage,
-    ResultsWaitPage,
-    Results
+    ExitCodeWaitPage,
+    ExitCode,
 ]

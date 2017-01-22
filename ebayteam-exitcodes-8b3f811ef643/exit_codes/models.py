@@ -7,7 +7,7 @@ from .exit_codes import encrypt_and_save
 author = 'Your name here'
 
 doc = """
-An example app for Amazon MTurk exit codes
+An example app for Amazon MTurk exit codes.
 After the creating a session in the app using either the sessions tab or the demo tab
 a new file named as 'YEAR-MONTH-DAY_Hour_Minute_Second_SessionCode.csv' will appear
 in the project directory
@@ -23,7 +23,7 @@ class Constants(BaseConstants):
 class Subsession(BaseSubsession):
     def before_session_starts(self):
         # Only Change the url to what you want before creating the session in otree
-        encrypt_and_save(self.session.participant_set.all(), self.session.code, "http://127.0.0.1:8000/public_goods/InitializeParticipant/")
+        encrypt_and_save(self.session.participant_set.all(), self.session.code, "http://127.0.0.1:8000/InitializeParticipant/")
    
 
 class Group(BaseGroup):

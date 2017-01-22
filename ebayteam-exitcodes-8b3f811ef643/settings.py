@@ -129,7 +129,7 @@ SESSION_CONFIGS = [
         'name': 'public_goods_exit',
         'display_name': "Public Goods with AMT Exit Codes",
         'num_demo_participants': 3,
-        'app_sequence': ['exit_codes', 'public_goods'],
+        'app_sequence': ['public_goods', 'exit_codes'],
     },
 ]
 

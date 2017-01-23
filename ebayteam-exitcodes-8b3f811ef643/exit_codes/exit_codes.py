@@ -51,6 +51,7 @@ def aes_encrypt(string):
         obj = AES.new(ENCRYPTION_KEY, AES.MODE_CBC, b'This is an IV456') # This is an IV
         ciphertext = obj.encrypt(string)
         cipher_base64_encoded = base64.b64encode(ciphertext).decode('utf-8')
-        return cipher_base64_encoded
+        # b: Specify the length of the codes here
+        return cipher_base64_encoded[0:8]
     else:
         return None

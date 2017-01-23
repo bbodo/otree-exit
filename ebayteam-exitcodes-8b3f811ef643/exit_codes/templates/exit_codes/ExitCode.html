@@ -2,19 +2,25 @@
 {% load staticfiles otree_tags %}
 
 {% block title %}
-    Exit Code Generation
+    Checkout
 {% endblock %}
 
 {% block content %}
     <p>
-    Your Exit Code is: <br>
-    <pre>{{exit_code}}</pre>
-    </p>
 
-    <p>
-    Please make note of this unique code, as it is important to deliver your payoff.
+        You have finished the study. Thank you for taking your time! 
+        In order to receive your payment you must copy and paste the 
+        following code back to Amazon Mechanical Turk:
+
+        <pre>{{exit_code}}</pre>
+
+        Your payment will be processed within the next 24 hours. If you 
+        encounter problems submitting this HIT, please search for a HIT 
+        called "ETH Descil Trouble Ticket" and report your problem there. <br>
+
+    </p>
     <br><br>
-    </p>    
+
 
     {% next_button %}
 {% endblock %}

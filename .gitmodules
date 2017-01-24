@@ -1,0 +1,3 @@
+[submodule "otree-descil"]
+	path = otree-descil
+	url = https://github.com/descil/otree-core.git

@@ -116,7 +116,7 @@ SESSION_CONFIGS = [
     {
         'name': 'exit_codes',
         'display_name': "Amazon Exit Codes",
-        'num_demo_participants': 2,
+        'num_demo_participants': 1,
         'app_sequence': ['exit_codes'],
     },
     {

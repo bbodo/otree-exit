@@ -16,12 +16,12 @@ class ExitCodeWaitPage(WaitPage):
 """
 
 
-class ExitCode(Page):
+class Checkout(Page):
     def vars_for_template(self):
         return {'exit_code' : aes_encrypt(self.participant.code.encode())[0:8]}
 
 
 page_sequence = [
-    ExitCodeWaitPage,
-    ExitCode,
+    # ExitCodeWaitPage,
+    Checkout,
 ]

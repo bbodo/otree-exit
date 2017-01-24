@@ -105,6 +105,22 @@ SESSION_CONFIG_DEFAULTS = {
     'mturk_hit_settings': mturk_hit_settings,
 }
 
+ROOM_DEFAULTS = {}
+
+ROOMS = [
+    {
+        'name': 'test',
+        'display_name': 'test',
+        'participant_label_file': 'test.txt',
+    },
+    {
+        'name': 'econ_lab',
+        'display_name': 'Experimental Economics Lab',
+    },
+]
+
+
+
 
 SESSION_CONFIGS = [
     # {

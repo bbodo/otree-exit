@@ -25,7 +25,7 @@ def encrypt_and_save(participants, session_code, url):
     codes = [participant.code for participant in participants]
     encrypted = encrypt_participant_codes(codes)
     with open(datetime.now().strftime("%Y-%m-%d_%H-%M-%S")+"_"+ session_code+".csv", 'w') as out:
-        out.write('URL, Exit_Code\n')               
+        out.write('AccessCode, ExitCode\n')               
         for code_exit_code in encrypted:
             for key, value in code_exit_code.items():
                  out.write(url.strip()+""+key+", "+value+"\n")

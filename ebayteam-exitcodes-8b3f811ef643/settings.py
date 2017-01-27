@@ -8,6 +8,7 @@ import otree.settings
 
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+SITE_ROOT = os.path.abspath(os.path.dirname(__file__))
 
 # the environment variable OTREE_PRODUCTION controls whether Django runs in
 # DEBUG mode. If OTREE_PRODUCTION==1, then DEBUG=False

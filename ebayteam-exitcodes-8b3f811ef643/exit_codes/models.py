@@ -2,7 +2,7 @@ from otree.api import (
     models, widgets, BaseConstants, BaseSubsession, BaseGroup, BasePlayer,
     Currency as c, currency_range
 )
-from .exit_codes import encrypt_and_save
+from .exit_codes import encrypt_and_save_csv, encrypt_and_save_json
 
 author = 'Your name here'
 
@@ -23,7 +23,8 @@ class Constants(BaseConstants):
 class Subsession(BaseSubsession):
     def before_session_starts(self):
         # Only Change the url to what you want before creating the session in otree
-        encrypt_and_save(self.session.participant_set.all(), self.session.code, "http://127.0.0.1:8000/InitializeParticipant/")
+        encrypt_and_save_csv(self.session.participant_set.all(), self.session.code, "http://127.0.0.1:8000/InitializeParticipant/")
+        encrypt_and_save_json(self.session.participant_set.all(), self.session.code, "http://127.0.0.1:8000/InitializeParticipant/")
    
 
 class Group(BaseGroup):

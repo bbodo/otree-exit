@@ -16,7 +16,7 @@ bobrae: pycrypto has been replaced by pycryptodome.
     we need byte strings - b'' or .encode() - namely the ENCRYPTION_KEY and the 
     "InitializationVecor" - "IV" below.
     TO CHANGE FROM ALPHANUM TO COMPLEXER CODES, SWITCH "sha_hash" to "aes_encrypt"
-    IN "encrypt_participant_codes"
+    IN "encrypt_participant_codes" and in views.py vars_for_tempalte!
 """
 ENCRYPTION_KEY = b'This is a key124' # ENCRYPTION_KEY should be 16 characters in length
 
@@ -81,7 +81,7 @@ def aes_encrypt(string):
     A method to encrypt the string
     string length must be a multiple of 8 always
     """
-    string = string+string # Make the string 16 letters
+    string = (string+string).encode() # Make the string 16 letters
     if len(string) % 16 == 0:
         obj = AES.new(ENCRYPTION_KEY, AES.MODE_CBC, b'This is an IV456') # This is an IV
         ciphertext = obj.encrypt(string)

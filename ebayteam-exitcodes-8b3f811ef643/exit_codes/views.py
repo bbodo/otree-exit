@@ -4,7 +4,7 @@ from ._builtin import Page, WaitPage
 from .models import Constants
 
 # Import this function to get the exit code for a single player
-from .exit_codes import aes_encrypt
+from .exit_codes import aes_encrypt, sha_hash
 
 class ExitCodeWaitPage(WaitPage):
 
@@ -16,9 +16,11 @@ class ExitCodeWaitPage(WaitPage):
 """
 
 
+# CHANGE sha_hash TO aes_encrypt FOR MORE COMPLEX CODES.
+
 class Checkout(Page):
     def vars_for_template(self):
-        return {'exit_code' : aes_encrypt(self.participant.code.encode())[0:8]}
+        return {'exit_code' : sha_hash(self.participant.code)[0:8]}
 
 
 page_sequence = [

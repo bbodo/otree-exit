@@ -6,11 +6,6 @@ from .models import Constants
 # Import this function to get the exit code for a single player
 from .exit_codes import aes_encrypt, sha_hash
 
-class ExitCodeWaitPage(WaitPage):
-
-    def after_all_players_arrive(self):
-        pass
-
 """
     Cleaned up the pages for less confusion when testing.
 """
@@ -24,6 +19,5 @@ class Checkout(Page):
 
 
 page_sequence = [
-    # ExitCodeWaitPage,
     Checkout,
 ]

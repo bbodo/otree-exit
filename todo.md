@@ -11,9 +11,6 @@ otree rooms vs waitingrooms vs labels vs accesscodes vs exitcodes
 otree subdirectory problem,
 bzw. database resets vs migrations
 
-4:
-https://sslvpn.ethz.ch/
-
 5:
 bash for windows ubuntu shizzle
 

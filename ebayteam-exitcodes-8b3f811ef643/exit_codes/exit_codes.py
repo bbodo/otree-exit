@@ -38,22 +38,6 @@ def encrypt_and_save_csv(participants, session_code, url):
             for key, value in code_exit_code.items():
                  out.write(url.strip()+""+key+", "+value+"\n")
 
-# def csv_to_json():
-#     """ 
-#         bobrae: Converting CSV to JSON instead of direct JSON, just in case CSV is better
-#         solution after all.
-#     """
-#     path = os.path.abspath(os.path.dirname(__file__))
-#     for filename in os.listdir(path):
-#         if re.match('.+csv', filename):
-#             with open(os.path.join(path, filename), 'r') as csvfile:
-#                 with open('test.json', 'w') as jsonfile:
-#                 #csvfile = open('file.csv', 'r')
-#                     fieldnames = ("AccesCode","ExitCode")
-#                     reader = csv.DictReader(csvfile, fieldnames)
-#                     for row in reader:
-#                         json.dump(row, jsonfile)
-#                         jsonfile.write('\n')
 
 def encrypt_and_save_json(participants, session_code, url):
     """
@@ -62,8 +46,9 @@ def encrypt_and_save_json(participants, session_code, url):
     codes = [participant.code for participant in participants]
     encrypted = encrypt_participant_codes(codes)
     with open(datetime.now().strftime("%Y-%m-%d_%H-%M-%S")+"_"+ session_code+".json", 'w') as out:
-        for code_exit_code in encrypted:
-            out.write(json.dumps(code_exit_code, out, indent=4))
+        json.dump(encrypted, out, indent=4)
+        return json.load(out)
+
 
 """
     bobrae : I used .encode on the codes below, to make the code work. 

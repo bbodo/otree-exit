@@ -1,7 +1,13 @@
-<p>Here is the sorted list of payoffs in round {{ subsession.round_number }}</p>
+Find below Access-Exit-Code pairs.<br><br>
 
-<ul>
-        {%for codepair in AccessExit %}
-            <li>{{ codepair }}</li>
-        {%endfor%}
-</ul>
+<script>
+var AccessExit = {{AccessExit}};
+JSON.stringify(AccessExit, null, "    ");
+</script>
+
+
+
+
+
+<!-- for in browser display -->
+{{AccessExit}}

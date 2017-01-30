@@ -1,4 +1,5 @@
 from otree.models import Session
+from otree.api import safe_json
 from Crypto.Cipher import AES
 from Crypto.Hash import SHA
 import base64
@@ -44,10 +45,16 @@ def encrypt_and_save_json(participants, session_code, url):
     see above
     """
     codes = [participant.code for participant in participants]
-    encrypted = encrypt_participant_codes(codes)
+    # Choose Hashing or Encrypting here
+    encrypted = hash_participant_codes(codes)
     with open(datetime.now().strftime("%Y-%m-%d_%H-%M-%S")+"_"+ session_code+".json", 'w') as out:
-        json.dump(encrypted, out, indent=4)
-        return json.load(out)
+         #json.dump(encrypted, out, indent=4)
+         safe_json(encrypted)
+    return encrypted
+    # for file in os.listdir():
+    #     if re.match(".+" + session_code + "\.json", file):
+    #         with open(file, 'r') as json_data:
+    #             return json.load(json_data)
 
 
 """
@@ -58,7 +65,14 @@ def encrypt_participant_codes(codes):
     """
     Encrypt the participants codes
     """
-    return [{code: sha_hash(code)} for code in codes]
+    return [{code: aes_encrypt(code)} for code in codes]
+
+def hash_participant_codes(codes):
+    """
+    Hash the participants codes
+    """
+    return [{'AccesCode': code,
+             'ExitCode': sha_hash(code)} for code in codes]
 
 
 def aes_encrypt(string):
@@ -77,4 +91,5 @@ def aes_encrypt(string):
         return None
 
 def sha_hash(string):
+    # b: Specify the length of the codes here
     return SHA.new(string.encode()).hexdigest()[:8]

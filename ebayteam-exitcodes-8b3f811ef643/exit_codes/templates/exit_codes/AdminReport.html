@@ -1,13 +1,47 @@
-Find below Access-Exit-Code pairs.<br><br>
-
-<script>
-var AccessExit = {{AccessExit}};
-JSON.stringify(AccessExit, null, "    ");
-</script>
+{% extends "global/Base.html" %}
+{% load staticfiles otree_tags %}
 
 
 
+{% block title %}
+	AccessCode: ExitCode Pairs
+{% endblock %}
+
+{% block content %}
+    <p>
+	Please click on the codes and Ctrl+C or RightClick -> Copy to Clipboard. \n
+	If it is not autoselected use Ctrl+A to select all of the text, after clicking inside the textbox.
+        <pre>
+        <textarea class="form-control"  id="trimmed_codes" rows="3" style="min-width:1; cursor:text; background-color: transparent; border: 0; box-shadow: none;" 
+        \ onclick="this.focus();this.select()" readonly></textarea>
+        </pre>
+        
+
+{% endblock %}
+
+{% block scripts %}
+
+	<script>
+	window.onload = function() {
+	var AccessExit = {{AccessExit}};
+	CodesString = JSON.stringify(AccessExit, null, "    ");
+	console.log(CodesString)
+	CodesString = CodesString.replace(/[&\/\\#,+()$~%.'"\[\]*?<>{}]/g, '');
+
+	var textarea = $("#trimmed_codes");
+	textarea.val(CodesString);
+	$("textarea").height( $("textarea")[0].scrollHeight );
+	};
 
 
-<!-- for in browser display -->
-{{AccessExit}}
+	</script>
+
+	<script>
+	var inp = $("#trimmed_codes")[0]; // select the input with proper selector
+	var default_value = inp.value;
+	inp.addEventListener("input", function () { 
+		this.value = default_value;
+	}, false);
+	</script>
+	
+{% endblock %}

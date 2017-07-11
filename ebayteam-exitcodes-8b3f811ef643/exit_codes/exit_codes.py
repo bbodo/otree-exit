@@ -71,7 +71,7 @@ def hash_participant_codes(codes):
     """
     Hash the participants codes
     """
-    return [{'AccesCode': code,
+    return [{'AccessCode': code,
              'ExitCode': sha_hash(code)} for code in codes]
 
 

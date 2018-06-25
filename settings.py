@@ -20,7 +20,8 @@ else:
 ADMIN_USERNAME = 'admin'
 
 # for security, best to set admin password in an environment variable
-ADMIN_PASSWORD = environ.get('OTREE_ADMIN_PASSWORD')
+# ADMIN_PASSWORD = environ.get('OTREE_ADMIN_PASSWORD')
+ADMIN_PASSWORD = 'blub'
 
 # don't share this with anybody.
 SECRET_KEY = 'klvw%!6@b+f1*39izl!amea_!vf-ax06hv73$k0=3-5ggz9*9-'
@@ -46,7 +47,8 @@ DATABASES = {
 # to DEMO. This will allow people to play in demo mode, but not access
 # the full admin interface.
 
-AUTH_LEVEL = environ.get('OTREE_AUTH_LEVEL')
+# AUTH_LEVEL = environ.get('OTREE_AUTH_LEVEL')
+AUTH_LEVEL = "STUDY"
 
 # setting for integration with AWS Mturk
 AWS_ACCESS_KEY_ID = environ.get('AWS_ACCESS_KEY_ID')

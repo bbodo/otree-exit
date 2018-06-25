@@ -5,15 +5,15 @@ from otree.api import (
 from .exit_codes import encrypt_and_save_csv, encrypt_and_save_json
 
 
-author = 'Your name here'
+author = 'Bodo Brägger'
 
 doc = """
-An example app for Amazon MTurk exit codes.
+An example app for MTurk exit code generation.
 After the creating a session in the app using either the sessions tab or the demo tab
 a new file named as 'YEAR-MONTH-DAY_Hour_Minute_Second_SessionCode.csv' will appear
 in the project directory
 """
-
+# json_data = ""
 
 class Constants(BaseConstants):
 	name_in_url = 'exit_codes'
@@ -28,8 +28,7 @@ class Subsession(BaseSubsession):
 		self.session.code, "")
 		global json_data
 		json_data = encrypt_and_save_json(self.session.participant_set.all(), \
-		self.session.code, "http://127.0.0.1:8000/InitializeParticipant/")
-		global json_data
+		self.session.code, "")
 
 
 

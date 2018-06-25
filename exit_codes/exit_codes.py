@@ -48,7 +48,7 @@ def encrypt_and_save_json(participants, session_code, url=""):
 	# Choose Hashing or Encrypting here
 	encrypted = hash_participant_codes(codes)
 	with open(datetime.now().strftime("%Y-%m-%d_%H-%M-%S")+"_"+ session_code+".json", 'w') as out:
-		 #json.dump(encrypted, out, indent=4)
+		 json.dump(encrypted, out, indent=4)
 		 safe_json(encrypted)
 	return encrypted
 	# for file in os.listdir():

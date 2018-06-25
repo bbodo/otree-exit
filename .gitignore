@@ -4,6 +4,19 @@
 /tcl
 pip-selfcheck.json
 
+venv
+*.pyc
+staticfiles
+./db.sqlite3
+.idea
+*~
+*.sqlite3
+_coverage_results/
+
+./20*.csv
+./20*.json
+
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

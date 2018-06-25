@@ -12,15 +12,39 @@
         In order to receive your payment you must copy and paste the 
         following code back to Amazon Mechanical Turk:
 
-        <pre>{{exit_code}}</pre>
+        <pre style="text-indent: 0.8em;" class="selectable">{{exit_code}}</pre>
 
-        Your payment will be processed within the next 24 hours. If you 
-        encounter problems submitting this HIT, please search for a HIT 
-        called "ETH Descil Trouble Ticket" and report your problem there. <br>
+        Your payment will be typically processed within the next 24 hours. If 
+        you encounter problems submitting this HIT, please search for a HIT 
+        called "ETH DeSciL Trouble Ticket" and report your problem there. <br>
 
     </p>
     <br><br>
 
 {% endblock %}
 
+{% block styles %}
+<style>
+	.selectable{
+		-webkit-touch-callout: all; /* iOS Safari */
+		-webkit-user-select: all; /* Safari */
+		-khtml-user-select: all; /* Konqueror HTML */
+		-moz-user-select: all; /* Firefox */
+		-ms-user-select: all; /* Internet Explorer/Edge */
+		user-select: all; /* Chrome and Opera */
+
+		background-color: rgb(245, 245, 245);
+
+		border-style: solid;
+		border-width: 1px;
+		border-radius: 4px;
+		border-color: rgb(204, 204, 204);
+
+		min-width: 100%; 
+		
+		cursor: text; 
+	}
+
+</style>
+{% endblock %}
 

@@ -1,42 +1,45 @@
-TODO
+TODO: 
+===
+## immediate future
+- set this instance's admin password to an enviroment variable
+- add Ultimatum Game: 2 players, 5 rounds, 100 points = 10 cents
+- ~~test exitcodes in otree 2.X~~
+    - ~~make exitcode app crosscompatible~~
+- diagnose bug when otree-connect ing: 
+- 
+        Exception calling "GetCookies" with "1" argument(s): "This operation is not supported for a relative URI."
+        At C:\Home\PowerShell\Supervisor\PSOtree\Otree.ps1:107 char:5
+        $cookies = $OtreeSession.Cookies.GetCookies($loginUrl)
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        CategoryInfo          : NotSpecified: (:) [], MethodInvocationException
+        FullyQualifiedErrorId : InvalidOperationException
+- write up how to create heroku setup using the cli from a readymade git repo
+    - note: dependencies need to be in the right place
+    - [official otree-heroku docs](http://otree.readthedocs.io/en/latest/server/heroku.html "Basic Server Setup (Heroku)")
 
-1:
-otree treatments a-z
-econworld oder so
 
-2:
-otree rooms vs waitingrooms vs labels vs accesscodes vs exitcodes
 
-3:
-otree subdirectory problem,
-bzw. database resets vs migrations
 
-5:
-bash for windows ubuntu shizzle
 
-6:
-investigate venv
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />
 https://docs.djangoproject.com <br />
-3)	Program a first oTree Game<br />
-a.	Take the example ‘Guess 2/3’ and make a Guess 60% game out of it, deploy it locally, let me and Martin play/see it on your laptop/machine. [MILESTONE 1 ]<br />
-4)	Deploy oTree to www.descilix.ethz.ch<br />
-a.	I will provide credentials to descilix. Get comfortable with bash.<br />
-b.	Make a plan what needs to be installed. Let me review.<br />
-c.	Install Python/Django prerequisites.<br />
-d.	Use MySQL / MariaDb instead of PostgreSQL.<br />
-e.	Let Martin and me play Guess-60 on gunicorn on port 8080. [MILESTONE 2]<br />
-f.	Use nginx as a front end for otree. Make a plan what needs to be configured. Let me review. Let us Martin and me play Guess-60 on <br />
-g.	Write a documentation what you have installed. Automate your install procedure with a build script. [MILESTONE 3]<br />
-5)	GIT and Visual Studio Code. Prepare version control for the rest of us.<br />
-a.	Start committing your materials, documents and build scripts to the otree-descil repo. I expect that from then on we can watch your progress there. No commit, no progress.<br />
-b.	Add one/few markdown pages that summarizes the resources you have consulted to come this far. Add this to the repo.
-c.	Add the Guess-60 to the repo. [MILESTONE 4]<br />
-d.	Update the cloned oTree repo in the DeSciL Org from upstream. Additionally, clone the otree-core and otree-launcher repos. Document how you did this and add your findings as markdown page to otree-descil repo. [MILESTONE 5]<br />
-e.	Install Visual Studio Code, clone the repo from GitHub. Make a change and commit from Visual Studio Code [MILESTONE 6]. <br />
-f.	Install vscode python extension. Play around with the code and with code completion. Write a short blog post (1 page) ‘How-to use Visual Studio Code to program oTree treatments.’ [MILESTONE 7].<br />
-g.	Re-Setup this tasklist as GitHub Issues and a GitHub Project. We want this project managed with their. Kanban boards. [MILESTONE 8].<br />
-h.	Explain und help Martin and me how we do a pull-request. Let us change a page in the documentation. Milestone is reached if it is easy for both of us to do PRs. [MILESTONE 9].<br />
+
 6)	oTree in the Lab<br />
 a.	Integrate oTree based on oTree Launcher with DeSciL LabLauncher. Otree server needs to run standalone on descil-sup01. Deliverable is a PowerShell script that prototypes startup of an oTree server on a Windows box with sqlite Database. [MILESTONE 10]<br />
 b.	Integrate oTree on descilix to run as the lab server. Milestone is reached with a polished PsLabLauchner script that starts an otree experiment in the lab. [MILESTONE 11]<br />
@@ -53,9 +56,6 @@ a.	Prepare the ‘Rock-Paper-Scissors’ treatment for a group size of 2 for dep
 a.	I would like to be able to setup, start, stop, download codes and data from oTree remotely by means of REST calls, i.e., with PowerShell. Design a WebApi Backend endpoint based on Django. Let me your review your design document that is a write-up in Markdown in the otree-descil repo. [MILESTONE 17]<br />
 b.	Build a first prototype and proof-of-concept. [MILESTONE 18]<br />
 c.	Introduce yourself to Mariyana and Dinesh. They develop an application with Django backend and Angular frontend that is hosted on descilix. Explain them what you changed on Descilix. Try to find out who to standardize Django workloads on descilix in general. Git is your friend. [MILESTONE 19]<br />
-d.	Introduce yourself to Chris Wickens, lead programmer of oTree. Demo your prototype and let him review and comment. You can also invite all other oTree programmers to this [MILESTONE 20 ]<br />
-10)	Provide an ‘oTree’ entry to the DeSciL knowledgebase.<br />
-a.	This should describe how people at GESS get startet with oTree. This reports your entire DeSciL efforts towards oTree and gives an overview of what is possible, what not, not yet, and what has been accomplished overall. You might want to start with this earlier. This is the end product you have to provide towards Prof. Hölscher. [MILESTONE 21].<br />
 11)	Implement Market Game for Martin [New Repo with its own Milestones]<br />
 12)	Implement and run a Market Game for Jonas Gehrlein (University of Bern), [New Repo with its own Milestones]<br /><br />
 13)	Integrate, test, and run a treatment developed by the Rauhut Group (University of Zurich), [New Repo with its own Milestones]<br />

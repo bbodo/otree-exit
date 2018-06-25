@@ -13,8 +13,8 @@ staticfiles
 *.sqlite3
 _coverage_results/
 
-./20*.csv
-./20*.json
+/20*.csv
+/20*.json
 
 
 # Byte-compiled / optimized / DLL files

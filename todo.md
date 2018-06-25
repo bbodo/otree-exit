@@ -13,6 +13,7 @@ TODO:
         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
         CategoryInfo          : NotSpecified: (:) [], MethodInvocationException
         FullyQualifiedErrorId : InvalidOperationException
+- test otree 2 on heroku!
 - write up how to create heroku setup using the cli from a readymade git repo
     - note: dependencies need to be in the right place
     - [official otree-heroku docs](http://otree.readthedocs.io/en/latest/server/heroku.html "Basic Server Setup (Heroku)")

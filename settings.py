@@ -134,7 +134,7 @@ SESSION_CONFIGS = [
     # }
     {
         'name': 'exit_codes',
-        'display_name': "Amazon Exit Codes",
+        'display_name': "MTurk Exit Codes",
         'num_demo_participants': 1,
         'app_sequence': ['exit_codes'],
     },
@@ -146,7 +146,7 @@ SESSION_CONFIGS = [
     },
     {
         'name': 'public_goods_exit',
-        'display_name': "Public Goods with AMT Exit Codes",
+        'display_name': "Public Goods with MTurk Exit Codes",
         'num_demo_participants': 3,
         'app_sequence': ['public_goods', 'exit_codes'],
     },

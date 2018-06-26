@@ -150,7 +150,22 @@ SESSION_CONFIGS = [
         'num_demo_participants': 3,
         'app_sequence': ['public_goods', 'exit_codes'],
     },
+    {
+        'name': 'descilult',
+        'display_name': "Ultimatum with Exit",
+        'num_demo_participants': 2,
+        'app_sequence': ['ultimatum', 'exit_codes'],
+    },
+    {
+        'name': 'ultimatum',
+        'display_name': "Ultimatum",
+        'num_demo_participants': 2,
+        'app_sequence': ['ultimatum',],
+    },
 ]
+
+CHANNEL_ROUTING = 'routing.channel_routing'
+
 
 # anything you put after the below line will override
 # oTree's default settings. Use with caution.

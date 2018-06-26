@@ -1,4 +1,5 @@
-otree-core>=1.4.5
+otree
+# otree-core>=1.4.5
 # Django==1.8.8 # for heroku, needs to be explicitly in requirements file
 pycryptodome
 # xlrd

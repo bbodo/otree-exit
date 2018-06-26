@@ -24,5 +24,4 @@ class Checkout(Page):
 
 page_sequence = [
     Checkout,
-    #AccessExit,
 ]

@@ -150,12 +150,12 @@ SESSION_CONFIGS = [
         'num_demo_participants': 3,
         'app_sequence': ['public_goods', 'exit_codes'],
     },
-    {
-        'name': 'descilult',
-        'display_name': "Ultimatum with Exit",
-        'num_demo_participants': 2,
-        'app_sequence': ['ultimatum', 'exit_codes'],
-    },
+    # {
+    #     'name': 'descilult',
+    #     'display_name': "Ultimatum with Exit",
+    #     'num_demo_participants': 2,
+    #     'app_sequence': ['ultimatum', 'exit_codes'],
+    # },
     {
         'name': 'ultimatum',
         'display_name': "Ultimatum",

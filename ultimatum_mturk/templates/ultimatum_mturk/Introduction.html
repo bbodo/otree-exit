@@ -1,0 +1,29 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+
+{% block title %}
+
+    Introduction
+
+{% endblock %}
+
+{% block content %}
+
+    {% include Constants.instructions_template %}
+
+    <p>
+
+        The instructions will remain on your screen for future reference.
+
+    </p>
+    <div id="chat">
+        {% chat %}
+    </div>
+
+    {% next_button %}
+
+
+
+{% endblock %}
+

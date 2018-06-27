@@ -17,15 +17,22 @@ class Checkout(Page):
     def vars_for_template(self):
         return {'exit_code' : sha_hash(self.participant.code)[0:8]}
     def is_displayed(self):
-        if 'global_timeout' not in self.participant.vars:
-            self.participant.vars['global_timeout'] = False
-        return not self.participant.vars['global_timeout']
+        if 'dropout' not in self.participant.vars:
+            self.participant.vars['dropout'] = False
+        return not self.participant.vars['dropout']
 
 # class AccessExit():
 #     test = JsonResponse({'AccessExit': json_file}, safe=False)
+
+class DeadEnd(Page):
+    def is_displayed(self):
+        if 'dropout' not in self.participant.vars:
+            self.participant.vars['dropout'] = False
+        return self.participant.vars['dropout']
 
 
 page_sequence = [
     Checkout,
     #AccessExit,
+    DeadEnd,
 ]

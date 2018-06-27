@@ -11,12 +11,15 @@ from .exit_codes import aes_encrypt, sha_hash
     Cleaned up the pages for less confusion when testing.
 """
 
-
 # CHANGE sha_hash TO aes_encrypt FOR MORE COMPLEX CODES.
 
 class Checkout(Page):
     def vars_for_template(self):
         return {'exit_code' : sha_hash(self.participant.code)[0:8]}
+    def is_displayed(self):
+        if 'global_timeout' not in self.participant.vars:
+            self.participant.vars['global_timeout'] = False
+        return not self.participant.vars['global_timeout']
 
 # class AccessExit():
 #     test = JsonResponse({'AccessExit': json_file}, safe=False)
@@ -24,4 +27,5 @@ class Checkout(Page):
 
 page_sequence = [
     Checkout,
+    #AccessExit,
 ]

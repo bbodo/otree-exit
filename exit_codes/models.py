@@ -31,6 +31,7 @@ class Subsession(BaseSubsession):
 		self.session.code, "")
 
 
+
 	def vars_for_admin_report(self):
 		return {'AccessExit': safe_json(json_data)}
 

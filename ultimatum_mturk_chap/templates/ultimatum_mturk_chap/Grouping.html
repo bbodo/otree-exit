@@ -1,0 +1,20 @@
+{% extends "otree_mturk_utils/CustomWaitPage.html" %}
+{% load otree static %}
+
+
+{% block scripts %}
+{{ block.super }}
+<script>
+    function doOnClick(id) {
+        $(id).click();
+    }
+</script>
+{% endblock %}
+
+{% block styles %}
+<style>
+    .your-clock {
+        display: none;
+    }
+</style>
+{% endblock %}

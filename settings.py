@@ -150,12 +150,18 @@ SESSION_CONFIGS = [
         'num_demo_participants': 3,
         'app_sequence': ['public_goods', 'exit_codes'],
     },
-    # {
-    #     'name': 'descilult',
-    #     'display_name': "Ultimatum with Exit",
-    #     'num_demo_participants': 2,
-    #     'app_sequence': ['ultimatum', 'exit_codes'],
-    # },
+    {
+        'name': 'descilult',
+        'display_name': "Ultimatum with Exit",
+        'num_demo_participants': 2,
+        'app_sequence': ['ultimatum_mturk', 'exit_codes'],
+    },
+    {
+        'name': 'descilultchap',
+        'display_name': "Ultimatum, Exit, using Chapkovkis Custom Mturk pages",
+        'num_demo_participants': 2,
+        'app_sequence': ['ultimatum_mturk_chap', 'exit_codes'],
+    },
     {
         'name': 'ultimatum',
         'display_name': "Ultimatum",
@@ -165,6 +171,10 @@ SESSION_CONFIGS = [
 ]
 
 CHANNEL_ROUTING = 'routing.channel_routing'
+
+EXTENSION_APPS = [
+    'otree_mturk_utils',
+]
 
 
 # anything you put after the below line will override

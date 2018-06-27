@@ -17,6 +17,7 @@ class Checkout(Page):
     def vars_for_template(self):
         return {'exit_code' : sha_hash(self.participant.code)[0:8]}
     def is_displayed(self):
+        print('This participant had a dropout tag', self.participant.vars.get('dropout'))
         if 'dropout' not in self.participant.vars:
             self.participant.vars['dropout'] = False
         return not self.participant.vars['dropout']

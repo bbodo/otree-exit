@@ -1,6 +1,14 @@
 <script>
 window.onload = function() {
+  var $currentScript = $('#websocket-redirect');
 
+  var socketUrl = $currentScript.data('socketUrl');
+  var isBrowserBot = $currentScript.data('isBrowserBot');
+  var redirectUrl = $currentScript.data('redirectUrl');
+  console.log(socketUrl);
+  console.log(isBrowserBot);
+  console.log(redirectUrl);
+  console.log($currentScript.data( "lastValue" ));
     sendmessage = function(what) {
     var msg = {
             participant_code: what.attr('id'),
@@ -26,9 +34,10 @@ window.onload = function() {
 
     // Handle messages sent by the server.
     wpsocket.onmessage = function(event) {
-      var obj = jQuery.parseJSON(event.data);
-      console.log(obj.status)
-      if (obj.status=='ready') {$('.form').submit()}
+      var data = jQuery.parseJSON(event.data);
+      console.log(data.status)
+      if (data.status=='ready') {$('.form').submit()}
+      if (data.auto_advanced) { window.location.href = redirectUrl; }
     };
 
 

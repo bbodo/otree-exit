@@ -29,10 +29,12 @@ def advance_participant(participant):
 
     try:
         if p._current_form_page_url:
+            print(p._current_form_page_url)
             resp = client.post(
                 p._current_form_page_url,
                 data={
                     constants_internal.timeout_happened: True,
+
                     constants_internal.admin_secret_code: ADMIN_SECRET_CODE
                 },
                 follow=True
@@ -61,8 +63,9 @@ def ws_message(message, session_code):
     cursession = Session.objects.get(code=session_code)
     participant = cursession.participant_set.get(code=curparticipant_code)
     advance_participant(participant)
+    print("advanced participant:", curparticipant_code, "from session:", session_code)
 
 
 # Connected to websocket.disconnect
 def ws_disconnect(message, session_code):
-    print('somebody disconnected...')
+    print('somebody disconnected from session:::', session_code)

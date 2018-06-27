@@ -13,9 +13,7 @@ staticfiles
 *.sqlite3
 _coverage_results/
 
-/20*.csv
-/20*.json
-
+__access-exitcodes/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

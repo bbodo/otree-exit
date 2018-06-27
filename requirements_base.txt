@@ -4,3 +4,4 @@ otree>=2.1.9
 pycryptodome
 # xlrd
 # numpy
+django-radiogrid

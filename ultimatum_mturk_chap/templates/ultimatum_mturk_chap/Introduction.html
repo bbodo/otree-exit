@@ -17,10 +17,16 @@
         The instructions will remain on your screen for future reference.
 
     </p>
-    <div id="chat">
-        {% chat %}
-    </div>
-
+    {% comment %}
+        <div id="chat">
+            <h5>Global Chat</h5>
+            {% chat nickname=player.chat_nickname channel=1 %}
+        </div>
+        {% for config in player.chat_configs %}
+            <h5>{{ config.label }}</h5>
+            {% chat nickname=player.chat_nickname channel=config.channel %}
+        {% endfor %} 
+    {% endcomment %}
     {% next_button %}
 
 

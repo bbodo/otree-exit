@@ -40,8 +40,8 @@ class Subsession(BaseSubsession):
                 g.use_strategy_method = self.session.config['use_strategy_method']
             else:
                 g.use_strategy_method = random.choice([True, False])
-        for p in self.get_players():
-            p.participant.vars['global_timeout'] = False
+        # if(self.round_number > 1):
+        #     self.group_like_round(1)
 
 
 
@@ -106,4 +106,24 @@ class Group(BaseGroup):
 
 
 class Player(BasePlayer):
-    pass
+    # pass
+
+    def chat_nickname(self):
+        # return 'Player {}'.format(self.id_in_group)
+        return self.participant.code
+    def chat_configs(self):
+        configs = []
+        for other in self.get_others_in_group():
+            if other.id_in_group < self.id_in_group:
+                lower_id, higher_id = other.id_in_group, self.id_in_group
+            else:
+                lower_id, higher_id = self.id_in_group, other.id_in_group
+            configs.append({
+                    # make a name for the channel that is the same for all
+                    # channel members. That's why we order it (lower, higher)
+                    'channel': '{}-{}-{}'.format(self.group.id, lower_id, higher_id),
+                    'label': 'Chat with Player {} ({}) in your group'.format(other.id_in_group, other.chat_nickname())
+            })
+        print(self.participant.code, configs)
+        return configs
+

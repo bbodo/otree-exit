@@ -4,10 +4,10 @@ from otree.api import (
 )
 
 
-author = 'Your name here'
+author = 'Bodo Braegger'
 
 doc = """
-Your app description
+A simple information and consent page where subjects can only continue if they consent.
 """
 
 

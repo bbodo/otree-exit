@@ -133,6 +133,12 @@ SESSION_CONFIGS = [
     #     'app_sequence': ['...'],
     # }
     {
+        'name': 'consent',
+        'display_name': 'Consent',
+        'num_demo_participants': 1,
+        'app_sequence': ['consent_mturk'],
+    },
+    {
         'name': 'exit_codes',
         'display_name': "MTurk Exit Codes",
         'num_demo_participants': 1,
@@ -159,8 +165,28 @@ SESSION_CONFIGS = [
     {
         'name': 'descilultchap',
         'display_name': "Ultimatum, Exit, using Chapkovkis Custom Mturk pages",
-        'num_demo_participants': 2,
-        'app_sequence': ['ultimatum_mturk_chap', 'exit_codes'],
+        'num_demo_participants': 4,
+        'app_sequence': ['consent_mturk', 'mturk_grouping', 'ultimatum_mturk_chap', 'exit_codes'],
+        'group_size': 2,
+        'wait_time': 30,
+        'doc': """
+        Edit the 'group_size' parameter to match group size of the next app.
+        Edit the 'wait_time' parameter to determine how long a subject has to wait
+        before being able to skip a page (in seconds)
+        """
+    },
+    {
+        'name': 'mturk_grouping',
+        'display_name': "mturk_grouping",
+        'num_demo_participants': 4,
+        'app_sequence': ['mturk_grouping'],
+        'group_size': 2,
+        'wait_time': 30,
+        'doc': """
+        Edit the 'group_size' parameter to match group size of the next app.
+        Edit the 'wait_time' parameter to determine how long a subject has to wait
+        before being able to skip a page (in seconds)
+        """
     },
     {
         'name': 'ultimatum',

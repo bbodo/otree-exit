@@ -27,7 +27,7 @@ class GroupingWP(CustomMturkWaitPage):
     skip_until_the_end_of = 'experiment'
     # startwp_timer = session.vars['wait_time']
     use_task = False
-    startwp_timer = 40
+    startwp_timer = Constants.timer_seconds
     def set_timer(self):
         if self.session.vars.get('wait_time'):
             return self.session.vars['wait_time']

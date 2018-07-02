@@ -170,9 +170,9 @@ SESSION_CONFIGS = [
         'group_size': 2,
         'wait_time': 30,
         'doc': """
-        Edit the 'group_size' parameter to match group size of the next app.
-        Edit the 'wait_time' parameter to determine how long a subject has to wait
-        before being able to skip a page (in seconds)
+        To set group size and wait time, you need to change these values in their 
+        respective places in each relevant app.
+        ########################################################################
         """
     },
     {
@@ -182,11 +182,6 @@ SESSION_CONFIGS = [
         'app_sequence': ['mturk_grouping'],
         'group_size': 2,
         'wait_time': 30,
-        'doc': """
-        Edit the 'group_size' parameter to match group size of the next app.
-        Edit the 'wait_time' parameter to determine how long a subject has to wait
-        before being able to skip a page (in seconds)
-        """
     },
     {
         'name': 'ultimatum',

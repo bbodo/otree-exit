@@ -1,1 +1,1 @@
-# OtreeUltimatumTurk
+# OtreeUltTurk

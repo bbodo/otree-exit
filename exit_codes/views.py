@@ -17,19 +17,16 @@ class Checkout(Page):
     def vars_for_template(self):
         return {'exit_code' : sha_hash(self.participant.code)[0:8]}
     def is_displayed(self):
-        print('This participant had a dropout tag', self.participant.vars.get('dropout'))
-        if 'dropout' not in self.participant.vars:
-            self.participant.vars['dropout'] = False
-        return not self.participant.vars['dropout']
+        print('This participant has a dropout tag', self.participant.vars.get('dropout'))
+        print('This participant has a go_to_the_end tag', self.participant.vars.get('go_to_the_end'))
+        return self.participant.vars.get('go_to_the_end') or not self.participant.vars.get('dropout')
 
 # class AccessExit():
 #     test = JsonResponse({'AccessExit': json_file}, safe=False)
 
 class DeadEnd(Page):
     def is_displayed(self):
-        if 'dropout' not in self.participant.vars:
-            self.participant.vars['dropout'] = False
-        return self.participant.vars['dropout']
+        return self.participant.vars.get('dropout')
 
 
 page_sequence = [

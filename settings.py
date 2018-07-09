@@ -145,18 +145,6 @@ SESSION_CONFIGS = [
         'app_sequence': ['exit_codes'],
     },
     {
-        'name': 'public_goods',
-        'display_name': "Public Goods",
-        'num_demo_participants': 3,
-        'app_sequence': ['public_goods'],
-    },
-    {
-        'name': 'public_goods_exit',
-        'display_name': "Public Goods with MTurk Exit Codes",
-        'num_demo_participants': 3,
-        'app_sequence': ['public_goods', 'exit_codes'],
-    },
-    {
         'name': 'descilult',
         'display_name': "Ultimatum with Exit",
         'num_demo_participants': 2,

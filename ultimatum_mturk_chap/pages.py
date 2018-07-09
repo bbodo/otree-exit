@@ -96,14 +96,6 @@ class ResultsWaitPage(WaitPage):
 class Results(CustomMturkPage):
     timeout_seconds = timeout_general
 
-class EndResults(CustomMturkPage):
-    def vars_for_template(self):
-        return {'total_payoff': self.participant.payoff_plus_participation_fee().to_real_world_currency(self.session) }
-    def is_displayed(self):
-        app_name = self.subsession._meta.app_label
-        round_number = self.subsession.round_number
-        return self.subsession.round_number == Constants.num_rounds
-
 
 page_sequence = [
                  Grouping,
@@ -115,5 +107,6 @@ page_sequence = [
                  AcceptStrategy,
                  ResultsWaitPage,
                  Results,
-                 EndResults
+                #  EndResults
+                # see exit_codes
                  ]

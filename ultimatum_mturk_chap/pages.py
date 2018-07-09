@@ -57,7 +57,7 @@ class WaitForProposer(WaitPage):
     def is_displayed(self):
         app_name = self.subsession._meta.app_label
         round_number = self.subsession.round_number
-        return not self.participant.vars.get('go_to_the_end') or self.participant.vars.get('skip_the_end_of_app_{}'.format(app_name)) or self.participant.vars.get('skip_the_end_of_app_{}_round_{}'.format(app_name , round_number))
+        return not (self.participant.vars.get('go_to_the_end') or self.participant.vars.get('skip_the_end_of_app_{}'.format(app_name)) or self.participant.vars.get('skip_the_end_of_app_{}_round_{}'.format(app_name , round_number)))
 
 
 
@@ -96,14 +96,13 @@ class ResultsWaitPage(WaitPage):
 class Results(CustomMturkPage):
     timeout_seconds = timeout_general
 
-class EndResults(WaitPage):
-    def after_all_players_arrive(self):
-        [p.set_cumulative_payoff() for p in self.group.get_players()]
+class EndResults(CustomMturkPage):
+    def vars_for_template(self):
+        return {'total_payoff': self.participant.payoff_plus_participation_fee().to_real_world_currency(self.session) }
     def is_displayed(self):
         app_name = self.subsession._meta.app_label
         round_number = self.subsession.round_number
-        return self.round_number == Constants.num_rounds and not self.participant.vars.get('go_to_the_end') or self.participant.vars.get('skip_the_end_of_app_{}'.format(app_name)) or self.participant.vars.get('skip_the_end_of_app_{}_round_{}'.format(app_name , round_number))
-
+        return self.subsession.round_number == Constants.num_rounds
 
 
 page_sequence = [

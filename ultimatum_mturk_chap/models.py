@@ -85,15 +85,6 @@ class Group(BaseGroup):
 	def set_payoffs(self):
 		p1, p2 = self.get_players()
 
-		# if self.global_timeout_happened:
-		#     # p1.payoff = Constants.payoff_showup
-		#     # p2.payoff = Constants.payoff_showup
-		#     if p1.participant.vars['global_timeout']:
-		#         p2.payoff = Constants.payoff_if_rejected
-		#     else:
-		#         p1.payoff = Constants.payoff_if_rejected
-		#     return
-
 		if self.use_strategy_method:
 			self.offer_accepted = getattr(self, 'response_{}'.format(
 				int(self.amount_offered)))
@@ -107,13 +98,6 @@ class Group(BaseGroup):
 
 
 class Player(BasePlayer):
-	def set_cumulative_payoff(self):
-		cumulative_payoff = sum([p.payoff for p in self.in_all_rounds()])
-		print(self.participant.code, "earned in ultimatum:", cumulative_payoff)
-		self.participant.vars['payoff'] = self.participant.vars.get('payoff', 0) + cumulative_payoff
-		print(self.participant.code, "'s total payoff so far:", self.participant.vars['payoff'])
-
-
 	def chat_nickname(self):
 		# return 'Player {}'.format(self.id_in_group)
 		return self.participant.code

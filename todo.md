@@ -2,7 +2,8 @@
 
 - ~~Check if folder exist~~
 - ~~Remove extra lobbies~~
-- Investigate payoffs, looks like they are doubled
+- ~~Investigate payoffs, looks like they are doubled~~
+- ~~create final results screen with total payoff~~
 - remove pycrypodome dependency
 
 

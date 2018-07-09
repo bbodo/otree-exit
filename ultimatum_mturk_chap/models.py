@@ -41,8 +41,8 @@ class Subsession(BaseSubsession):
 			else:
 				# g.use_strategy_method = random.choice([True, False])
 				g.use_strategy_method = False
-		if(self.round_number > 1):
-			self.group_like_round(1)
+		# if(self.round_number > 1):
+		# 	self.group_like_round(1)
 
 
 

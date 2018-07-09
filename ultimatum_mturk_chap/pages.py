@@ -108,7 +108,7 @@ class EndResults(WaitPage):
 
 page_sequence = [
                  Grouping,
-                 ReGrouping,
+                #  ReGrouping,
                  Introduction,
                  Offer,
                  WaitForProposer,

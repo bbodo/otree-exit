@@ -18,4 +18,4 @@
   - The game will be played for five rounds. Roles remain stable.
   - Conversion rate: 100 points == 20 cents.
 
-- Screen Game: Remove instructions from bottom
+- ~~Screen Game: Remove instructions from bottom~~

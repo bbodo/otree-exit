@@ -2,22 +2,22 @@
 {% load otree static %}
 
 {% block title %}
-        Your role and decision
+	Round {{subsession.round_number}} of {{Constants.num_rounds}}: Your role and decision
 {% endblock %}
 
 {% block content %}
-    <p>
-            You are the <strong>proposer</strong>.
-    </p>
+	<p>
+		You are the <strong>proposer</strong>.
+	</p>
 
-    <p>
-            The two of you have been given {{ Constants.endowment }}. Enter the amount that you want to offer to the responder.
-    </p>
+	<p>
+		The two of you have been given {{ Constants.endowment }}. Enter the amount that you want to offer to the responder.
+	</p>
 
-    {% formfield group.amount_offered label="How much would you like to offer?" %}
+	{% formfield group.amount_offered label="How much would you like to offer?" %}
 
-    {% next_button %}
+	{% next_button %}
 
-    {% include Constants.instructions_template %}
+	<!-- {% include Constants.instructions_template %} -->
 
 {% endblock %}

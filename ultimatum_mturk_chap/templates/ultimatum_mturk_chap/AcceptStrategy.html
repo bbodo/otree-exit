@@ -2,7 +2,7 @@
 {% load otree static %}
 
 {% block title %}
-    Your role and decision
+    Round {{subsession.round_number}} of {{Constants.num_rounds}}: Your role and decision
 {% endblock %}
 
 {% block content %}
@@ -26,7 +26,7 @@
     {% endfor %}
 
     {% next_button %}
-    {% include Constants.instructions_template %}
+    <!-- {% include Constants.instructions_template %} -->
 
 {% endblock %}
 

@@ -17,16 +17,17 @@ class Checkout(Page):
     def vars_for_template(self):
         return {'exit_code' : sha_hash(self.participant.code)[0:8]}
     def is_displayed(self):
-        print('This participant has a dropout tag', self.participant.vars.get('dropout'))
-        print('This participant has a go_to_the_end tag', self.participant.vars.get('go_to_the_end'))
-        return self.participant.vars.get('go_to_the_end') or not self.participant.vars.get('dropout')
+        self.player.set_payoff_like_previous_apps()
+        print('Does this participant have a dropout tag:', self.participant.vars.get('dropout', 'Nope'))
+        print('Does this participant have a go_to_the_end tag:', self.participant.vars.get('go_to_the_end', 'Nope'))
+        return self.participant.vars.get('go_to_the_end', True) and not self.participant.vars.get('dropout', False)
 
 # class AccessExit():
 #     test = JsonResponse({'AccessExit': json_file}, safe=False)
 
 class DeadEnd(Page):
     def is_displayed(self):
-        return self.participant.vars.get('dropout')
+        return self.participant.vars.get('dropout', False)
 
 
 page_sequence = [

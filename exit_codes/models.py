@@ -41,4 +41,11 @@ class Group(BaseGroup):
 
 
 class Player(BasePlayer):
-	pass
+	def set_payoff_like_previous_apps(self):
+		""" you can call this in 'is_displayed' on a page because it does not alter 
+			payoff values and is safe consequently.
+		"""
+		if self.participant.vars.get('payoff', False):
+			self.payoff = self.participant.vars['payoff']
+		else:
+			print('No payoff saved in participant vars')

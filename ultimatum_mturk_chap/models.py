@@ -109,7 +109,9 @@ class Group(BaseGroup):
 class Player(BasePlayer):
 	def set_cumulative_payoff(self):
 		cumulative_payoff = sum([p.payoff for p in self.in_all_rounds()])
+		print(self.participant.code, "earned in ultimatum:", cumulative_payoff)
 		self.participant.vars['payoff'] = self.participant.vars.get('payoff', 0) + cumulative_payoff
+		print(self.participant.code, "'s total payoff so far:", self.participant.vars['payoff'])
 
 
 	def chat_nickname(self):

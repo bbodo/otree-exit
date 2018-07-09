@@ -20,7 +20,8 @@ bobrae: pycrypto has been replaced by pycryptodome.
 	IN "encrypt_participant_codes" and in views.py vars_for_tempalte!
 """
 ENCRYPTION_KEY = b'This is a key124' # ENCRYPTION_KEY should be 16 characters in length
-file_location_date = '__access-exitcodes/'+datetime.now().strftime("%Y-%m-%d")
+folder = '__access-exitcodes/'
+date = datetime.now().strftime("%Y-%m-%d")
 
 def encrypt_and_save_csv(participants, session_code, url):
 	"""
@@ -35,41 +36,40 @@ def encrypt_and_save_csv(participants, session_code, url):
 	codes = [participant.code for participant in participants]
 	encrypted = encrypt_participant_codes(codes)
 	try:
-		with open(file_location_date +"_"+ session_code + ".csv", 'x') as out:
+		if not os.path.exists(folder):
+			os.makedirs(folder)
+		with open(folder+date +"_"+ session_code + ".csv", 'x') as out:
 			print(out.name, 'does not yet exist')
+
 			out.write('AccessCode, ExitCode\n')               
 			for code_exit_code in encrypted:
 				for key, value in code_exit_code.items():
 					out.write(url.strip()+""+key+", "+value+"\n")
 	except:
-		print(file_location_date +"_"+ session_code + ".csv", 'does already exist')
+		print(folder+date +"_"+ session_code + ".csv", 'does already exist')
 
 
 def encrypt_and_save_json(participants, session_code, url=""):
 	"""
+	participants is the participants list
+	session_code is the current session code
 	see above
 	"""
 	codes = [participant.code for participant in participants]
 	# Choose Hashing or Encrypting here
 	encrypted = hash_participant_codes(codes)
 	try:
-		with open(file_location_date +"_"+ session_code + ".json", 'x') as out:
+		if not os.path.exists(folder):
+			os.makedirs(folder)
+		with open(folder+date +"_"+ session_code + ".json", 'x') as out:
 			print(out.name, 'does not yet exist')
+
 			json.dump(encrypted, out, indent=4)
 			safe_json(encrypted)
 	except:
-		print(file_location_date +"_"+ session_code + ".json", 'does already exist')
+		print(folder+date +"_"+ session_code + ".json", 'does already exist')
 
 	return encrypted
-	# for file in os.listdir():
-	#     if re.match(".+" + session_code + "\.json", file):
-	#         with open(file, 'r') as json_data:
-	#             return json.load(json_data)
-
-
-"""
-	bobrae : I used .encode on the codes below, to make the code work. 
-"""
 
 def encrypt_participant_codes(codes):
 	"""

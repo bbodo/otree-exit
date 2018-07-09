@@ -1,8 +1,9 @@
 # TODO
 
-- Check if folder exist
-- Remove extra lobbies
+- ~~Check if folder exist~~
+- ~~Remove extra lobbies~~
 - Investigate payoffs, looks like they are doubled
+- remove pycrypodome dependency
 
 
 ## Screen Layout

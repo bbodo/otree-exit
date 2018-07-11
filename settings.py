@@ -155,8 +155,8 @@ SESSION_CONFIGS = [
         'display_name': "Ultimatum, Exit, using Chapkovkis Custom Mturk pages",
         'num_demo_participants': 4,
         'app_sequence': ['consent_mturk', 'mturk_grouping', 'ultimatum_mturk_chap', 'exit_codes'],
-        'group_size': 2,
-        'wait_time': 30,
+        'real_world_currency_per_point': 0.002,
+        'participation_fee': 1,
         'use_strategy_method': False,
         'doc': """
         To set group size and wait time, you need to change these values in their 

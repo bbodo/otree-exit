@@ -7,10 +7,10 @@
 
 {% block content %}
     <p>
-        The participation fee for this study is {{participation_fee}}, and you 
+        The participation fee for this study is {{session.config.participation_fee}}, and you 
         received {{participant.payoff}}, which are converted using a ratio of 
-        {{points_conversion}}$ per point. <br>
-        Thus, your cumulative payoff across all rounds is {{ total_payoff }}.
+        ${{session.config.real_world_currency_per_point}} per point. <br>
+        Thus, your cumulative payoff across all rounds is {{ participant.payoff_plus_participation_fee }}.
     </p>
 
     {% next_button %}

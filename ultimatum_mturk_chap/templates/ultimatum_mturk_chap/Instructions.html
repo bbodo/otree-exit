@@ -19,16 +19,17 @@
             The two participants in a pair will have two different roles: the
             <strong>proposer</strong> and the <strong>responder</strong>.
             You will be assigned randomly to a role, and it will be displayed
-            on the next page.
+            on the next page. The role assignment is persistent across all rounds.
         </p>
 
         <p>
-            The two of you will together receive {{ Constants.endowment }}. The
-            experiment is about how to divide this amount.
-            The proposer will make the responder a take-it-or-leave-it offer,
+            The two of you will together receive {{ Constants.endowment }} in each round. 
+            The experiment is about how to divide this amount. In each round, 
+            the proposer will make the responder a take-it-or-leave-it offer,
             which the responder can accept or reject.
             If the offer is rejected, both will
-            receive {{ Constants.payoff_if_rejected }}.
+            receive {{ Constants.payoff_if_rejected }}. The game will be played
+            for {{ Constants.num_rounds }} rounds.
 
         </p>
 
@@ -56,7 +57,7 @@
 
         <p>
             {% if not group.use_strategy_method %}
-                The responder can either accept or reject the offer.
+                In each round, the responder can either accept or reject the offer.
             {% else %}
                 While the proposer makes the offer, the responder can select
                 which {{ Constants.offer_choices_count }} offers stated above
@@ -93,5 +94,14 @@
             <li>If the offer is rejected, both players will
                 receive {{ Constants.payoff_if_rejected }}</li>
         </ul>
+        <h4 class="panel-sub-heading">
+                Payoff
+        </h4>
+        <p>
+            For this study, every point is worth ${{session.config.real_world_currency_per_point}}, and each player
+            will receive a payoff according to the amount of points they received, 
+            plus a participation fee of {{session.config.participation_fee}}.
+        </p>
+        
     </div>
 </div>

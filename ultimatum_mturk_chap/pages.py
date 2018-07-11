@@ -8,6 +8,12 @@ timeout_general = 100
 
 class Introduction(CustomMturkPage):
     timeout_seconds = timeout_general
+    def vars_for_template(self):
+        return {
+            'participation_fee': self.session.config.get('participation_fee', 0),
+            'points_conversion': self.session.config.get('real_world_currency_per_point', 0)*100,
+            'total_payoff': self.participant.payoff_plus_participation_fee() 
+            }
     def is_displayed(self):
         # app_name = self.subsession._meta.app_label
         # round_number = self.subsession.round_number

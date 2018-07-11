@@ -17,7 +17,7 @@ class Constants(BaseConstants):
 	players_per_group = 2
 	num_rounds = 5
 
-	instructions_template = 'ultimatum_mturk/Instructions.html'
+	instructions_template = 'ultimatum_mturk_chap/Instructions.html'
 
 	endowment = c(100)
 	payoff_if_rejected = c(0)

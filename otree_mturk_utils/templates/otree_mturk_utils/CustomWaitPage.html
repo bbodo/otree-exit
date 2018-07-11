@@ -16,18 +16,24 @@
 {% endblock %}
 {% block content %}
     <div class="your-clock"></div>
-        <div><b><span id="how_many_arrived"></span>/{{ Constants.players_per_group }}</b> participants are
-            already here...
+
+    <p>
+        This experiment is designed for <span id="constants_ppg">{{ Constants.players_per_group }} </span>participants. Please wait for enough participants to connect.
+    </p>
+
+        <div id="nr_arrived"><b><span id="how_many_arrived"></span>/{{ Constants.players_per_group }}</b> participants are
+            already here.
         </div>
-        <div>Waiting for <span id="left_to_wait"></span> more <span id="left_to_wait_people"></span>...</div>
+
+        <div id="waiting-for">Waiting for <span id="left_to_wait"></span> more <span id="left_to_wait_people"></span>.</div>
         <br/>
 
 
     <div id="otree-timeout-warning" class="alert alert-warning" style="display:block;">
-        <p>You can finish the study if nobody arrives in:
-            <span class="glyphicon glyphicon-time"></span>
-            <strong><span id="otree-timer__time-left"></span></strong>
-        </p>
+        You can finish the study if nobody arrives in:
+        <span class="glyphicon glyphicon-time"></span>
+        <strong><span id="otree-timer__time-left"></span></strong>
+
     </div>
 
     <form action="" method="post" role="form" class="form">

@@ -13,6 +13,8 @@ class ConsentPage(Page):
     def before_next_page(self):
         if not self.player.consent:
             self.participant.vars['consent_dropout'] = True
+            self.participant.vars['go_to_the_end'] = True
+            self.participant.vars['dropout'] = True
         if self.timeout_happened:
             self.player.consent = False
             self.player.is_dropout = True

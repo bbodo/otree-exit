@@ -6,6 +6,10 @@ from otree_mturk_utils.views import CustomMturkPage, CustomMturkWaitPage
 
 timeout_general = 100
 
+class CustomMturkPageDropoutCheck(CustomMturkPage):
+    def is_displayed(self):
+        return not self.participant.vars.get('dropout', False)
+
 class Introduction(CustomMturkPage):
     timeout_seconds = timeout_general
     def vars_for_template(self):

@@ -26,4 +26,8 @@ class Group(BaseGroup):
 
 
 class Player(BasePlayer):
-    pass
+    consent = models.BooleanField(widget=widgets.RadioSelect,
+                                  initial=False
+    )
+
+    is_dropout = models.BooleanField(default=False)

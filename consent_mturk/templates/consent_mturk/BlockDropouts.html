@@ -1,0 +1,22 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+    End of Study
+{% endblock %}
+
+{% block content %}
+
+    <p>Unfortunately you were not able to accept the participation in this study on time using the Consent Form, and you were dropped out of this study.</p>
+    <div class="alert alert-danger">
+        Please <strong>return this HIT!</strong>
+    </div>
+    <p>
+        <h6>Contact Information</h6>
+        If you have any question concerning this study, please write to 
+        <a href="descil@ethz.ch?Subject=Question(s) regarding Session%20{{session.code}}">descil@ethz.ch</a>.
+    </p>
+
+{% endblock %}
+
+

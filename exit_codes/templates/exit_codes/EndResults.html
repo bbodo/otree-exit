@@ -7,7 +7,10 @@
 
 {% block content %}
     <p>
-        Your cumulative payoff across all rounds is {{ total_payoff }}.
+        The participation fee for this study is {{participation_fee}}, and you 
+        received {{participant.payoff}}, which are converted using a ratio of 
+        {{points_conversion}}$ per point. <br>
+        Thus, your cumulative payoff across all rounds is {{ total_payoff }}.
     </p>
 
     {% next_button %}

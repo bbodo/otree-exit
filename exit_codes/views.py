@@ -13,7 +13,11 @@ from otree_mturk_utils.views import CustomMturkPage, CustomMturkWaitPage
 """
 class EndResults(CustomMturkPage):
     def vars_for_template(self):
-        return {'total_payoff': self.participant.payoff_plus_participation_fee().to_real_world_currency(self.session) }
+        return {
+            'participation_fee': self.session.config.get('participation_fee', 0),
+            'points_conversion': self.session.config.get('real_world_currency_per_point', 0),
+            'total_payoff': self.participant.payoff_plus_participation_fee() 
+            }
     def is_displayed(self):
         app_name = self.subsession._meta.app_label
         round_number = self.subsession.round_number

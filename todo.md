@@ -9,8 +9,8 @@
 
 ## Screen Layout
 
-- Screen Consent: 
-  - Provide Consent Text
+- ~~Screen Consent: ~~
+  - ~~Provide Consent Text~~
 
 - Screen Lobby: 
   - Provide information text that players have to wait for co-players. Waiting for 1 more player(s).

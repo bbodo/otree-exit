@@ -38,7 +38,7 @@
 {% endblock %}
 
 {% block body_main %}
-<audio id="audio" src="http://dev.interactive-creation-works.net/1/1.ogg" ></audio>
+<span id="audiospan"></span>
 <div class="otree-wait-page container">
     <div class="card">
         <h4 class="otree-wait-page__title card-header">
@@ -72,8 +72,11 @@
     <!-- this is an HTML file rather than JavaScript static file because context variables need to be passed to it -->
     <script>
             function play(){
-                 var audio = document.getElementById("audio");
-                 audio.play();
+                {% comment %} var audiospan = document.getElementById("audiospan"); {% endcomment %}
+                {% comment %} $('#audiospan').html('<audio id="audio" autoplay src="https://freewavesamples.com/files/E-Mu-Proteus-FX-CosmoBel-C3.wav" ></audio>') {% endcomment %}
+                $('#audiospan').html('<audio id="audio" autoplay src="{% static "media/bell.wav" %}" ></audio>')
+                var audio = document.getElementById("audio");
+                audio.play();
                            }
     </script>
           
@@ -116,7 +119,7 @@ $(document).ready(function () {
 
             window.setInterval(function() {
                   window.location.href = '{{ view.redirect_url|safe }}';
-                }, 5000);
+                }, 5*1000);
            
             
 

@@ -2,7 +2,7 @@ from otree.api import (
 	models, widgets, BaseConstants, BaseSubsession, BaseGroup, BasePlayer,
 	Currency as c, currency_range, safe_json
 )
-from .exit_codes import encrypt_and_save_csv, encrypt_and_save_json
+from .exit_codes import hash_and_save_csv, hash_and_save_json
 
 
 author = 'Bodo Brägger'
@@ -24,15 +24,15 @@ class Constants(BaseConstants):
 class Subsession(BaseSubsession):
 	def before_session_starts(self):
 		# You can change the URL or leave it blank for a simple AccessCode, ExitCode file.
-		encrypt_and_save_csv(self.session.participant_set.all(), self.session.code, "")
+		hash_and_save_csv(self.session.participant_set.all(), self.session.code, "")
 		# global json_data
-		self.session.vars['codes'] = encrypt_and_save_json(self.session.participant_set.all(), self.session.code, "")
+		self.session.vars['codes'] = hash_and_save_json(self.session.participant_set.all(), self.session.code, "")
 
 
 
 	def vars_for_admin_report(self):
 		if('codes' not in self.session.vars):
-			self.session.vars['codes'] = encrypt_and_save_json(self.session.participant_set.all(), self.session.code, "")
+			self.session.vars['codes'] = hash_and_save_json(self.session.participant_set.all(), self.session.code, "")
 		return {'AccessExit': safe_json(self.session.vars['codes'])}
 
 

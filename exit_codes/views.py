@@ -4,7 +4,7 @@ from ._builtin import Page, WaitPage
 from .models import Constants
 from django.http import JsonResponse
 # Import this function to get the exit code for a single player
-from .exit_codes import aes_encrypt, sha_hash
+from .exit_codes import sha_hash #, aes_encrypt,
 #from .models import json_file
 from otree_mturk_utils.views import CustomMturkPage, CustomMturkWaitPage
 

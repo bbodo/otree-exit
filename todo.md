@@ -4,7 +4,7 @@
 - [x] Remove extra lobbies 
 - [x] Investigate payoffs, looks like they are doubled 
 - [x] create final results screen with total payoff 
-- [ ] remove pycrypodome dependency
+- [x] remove pycrypodome dependency
 - [ ] **change timers**
 - [ ] **change password to be set by environmental variable**
 ---

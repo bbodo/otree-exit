@@ -11,10 +11,17 @@ from otree_mturk_utils.views import CustomMturkPage, CustomMturkWaitPage
 """
     Cleaned up the pages for less confusion when testing.
 """
-class EndResults(CustomMturkPage):
+
+class DropoutInfo(Page):
+    timeout_seconds = 15
     def is_displayed(self):
-        app_name = self.subsession._meta.app_label
-        round_number = self.subsession.round_number
+        return self.participant.vars.get('dropout_suffered', False)
+    def before_next_page(self):
+        if self.participant.vars.get('dropout_suffered', False):
+            self.participant.vars['dropout_suffered'] = False
+
+class EndResults(Page):
+    def is_displayed(self):
         return self.participant.vars.get('go_to_the_end', True) and not self.participant.vars.get('dropout', False)
 
 # CHANGE sha_hash TO aes_encrypt FOR MORE COMPLEX CODES.
@@ -37,6 +44,7 @@ class DeadEnd(Page):
 
 
 page_sequence = [
+    DropoutInfo,
     EndResults,
     Checkout,
     #AccessExit,

@@ -133,28 +133,22 @@ SESSION_CONFIGS = [
     #     'app_sequence': ['...'],
     # }
     {
-        'name': 'consent',
-        'display_name': 'Consent',
+        'name': 'mturk_consent',
+        'display_name': 'MTurk: Consent',
         'num_demo_participants': 1,
-        'app_sequence': ['consent_mturk'],
+        'app_sequence': ['mturk_consent'],
     },
     {
-        'name': 'exit_codes',
-        'display_name': "MTurk Exit Codes",
+        'name': 'mturk_exit_codes',
+        'display_name': "MTurk: Exit Codes",
         'num_demo_participants': 1,
-        'app_sequence': ['exit_codes'],
+        'app_sequence': ['mturk_exit_codes'],
     },
     {
         'name': 'descilult',
-        'display_name': "Ultimatum with Exit",
-        'num_demo_participants': 2,
-        'app_sequence': ['ultimatum_mturk', 'exit_codes'],
-    },
-    {
-        'name': 'descilultchap',
-        'display_name': "Ultimatum, Exit, using Chapkovkis Custom Mturk pages",
+        'display_name': "MTurk: Ultimatum Test",
         'num_demo_participants': 4,
-        'app_sequence': ['consent_mturk', 'mturk_grouping', 'ultimatum_mturk_chap', 'exit_codes'],
+        'app_sequence': ['mturk_consent', 'mturk_grouping', 'mturk_ultimatum', 'mturk_exit_codes'],
         'real_world_currency_per_point': 0.002,
         'participation_fee': 1,
         'use_strategy_method': False,
@@ -165,8 +159,8 @@ SESSION_CONFIGS = [
         """
     },
     {
-        'name': 'mturk_grouping',
-        'display_name': "mturk_grouping",
+        'name': "mturk_grouping",
+        'display_name': 'MTurk: Grouping',
         'num_demo_participants': 4,
         'app_sequence': ['mturk_grouping'],
         'group_size': 2,
@@ -176,7 +170,7 @@ SESSION_CONFIGS = [
         'name': 'ultimatum',
         'display_name': "Ultimatum",
         'num_demo_participants': 2,
-        'app_sequence': ['ultimatum',],
+        'app_sequence': ['ultimatum_original',],
     },
 ]
 

@@ -13,11 +13,11 @@ In the latter treatment, the second player is given a list of all possible offer
 
 
 class Constants(BaseConstants):
-	name_in_url = 'ultmturk2'
+	name_in_url = 'mturkultm'
 	players_per_group = 2
 	num_rounds = 5
 
-	instructions_template = 'ultimatum_mturk_chap/Instructions.html'
+	instructions_template = 'mturk_ultimatum/Instructions.html'
 
 	endowment = c(100)
 	payoff_if_rejected = c(0)
@@ -41,8 +41,10 @@ class Subsession(BaseSubsession):
 			else:
 				# g.use_strategy_method = random.choice([True, False])
 				g.use_strategy_method = False
-		# if(self.round_number > 1):
-		# 	self.group_like_round(1)
+		if(self.round_number > 1):
+			for p in self.get_players():
+				p.dropout_caused = p.in_round(self.round_number-1).dropout_caused
+				p.dropout_suffered=p.in_round(self.round_number-1).dropout_suffered
 
 
 
@@ -53,9 +55,9 @@ def make_field(amount):
 
 
 class Group(BaseGroup):
-	global_timeout_happened = models.BooleanField(
-		doc="""Whether this group had a NoShow/DropOut"""
-	)
+	# global_timeout_happened = models.BooleanField(
+	# 	doc="""Whether this group had a NoShow/DropOut"""
+	# )
 
 	use_strategy_method = models.BooleanField(
 		doc="""Whether this group uses strategy method""",
@@ -69,17 +71,17 @@ class Group(BaseGroup):
 	)
 
 	# for strategy method, see the make_field function above
-	response_0  = make_field(0)
-	response_10 = make_field(10)
-	response_20 = make_field(20)
-	response_30 = make_field(30)
-	response_40 = make_field(40)
-	response_50 = make_field(50)
-	response_60 = make_field(60)
-	response_70 = make_field(70)
-	response_80 = make_field(80)
-	response_90 = make_field(90)
-	response_100 = make_field(100)
+	# response_0  = make_field(0)
+	# response_10 = make_field(10)
+	# response_20 = make_field(20)
+	# response_30 = make_field(30)
+	# response_40 = make_field(40)
+	# response_50 = make_field(50)
+	# response_60 = make_field(60)
+	# response_70 = make_field(70)
+	# response_80 = make_field(80)
+	# response_90 = make_field(90)
+	# response_100 = make_field(100)
 
 
 	def set_payoffs(self):
@@ -88,7 +90,10 @@ class Group(BaseGroup):
 		if self.use_strategy_method:
 			self.offer_accepted = getattr(self, 'response_{}'.format(
 				int(self.amount_offered)))
-
+		if self.offer_accepted is None:
+			self.offer_accepted = False
+		if self.amount_offered is None:
+			self.amount_offered = 0
 		if self.offer_accepted:
 			p1.payoff = Constants.endowment - self.amount_offered
 			p2.payoff = self.amount_offered
@@ -116,4 +121,13 @@ class Player(BasePlayer):
 			})
 		print(self.participant.code, configs)
 		return configs
+	
+	dropout_caused = models.BooleanField(
+		doc="Dropped out of this and following rounds.",
+		initial = False
+	)
+	dropout_suffered = models.BooleanField(
+		doc="This player's partner dropped out of this and following rounds.",
+		initial = False
+	)
 

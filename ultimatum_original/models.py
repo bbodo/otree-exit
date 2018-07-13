@@ -13,15 +13,14 @@ In the latter treatment, the second player is given a list of all possible offer
 
 
 class Constants(BaseConstants):
-    name_in_url = 'ultmturk'
+    name_in_url = 'ultimatum_original'
     players_per_group = 2
-    num_rounds = 5
+    num_rounds = 1
 
-    instructions_template = 'ultimatum_mturk/Instructions.html'
+    instructions_template = 'ultimatum/Instructions.html'
 
     endowment = c(100)
     payoff_if_rejected = c(0)
-    payoff_showup = c(1000)
     offer_increment = c(10)
 
     offer_choices = currency_range(0, endowment, offer_increment)
@@ -40,9 +39,6 @@ class Subsession(BaseSubsession):
                 g.use_strategy_method = self.session.config['use_strategy_method']
             else:
                 g.use_strategy_method = random.choice([True, False])
-        for p in self.get_players():
-            p.participant.vars['global_timeout'] = False
-
 
 
 def make_field(amount):
@@ -52,13 +48,8 @@ def make_field(amount):
 
 
 class Group(BaseGroup):
-    global_timeout_happened = models.BooleanField(
-        doc="""Whether this group had a NoShow/DropOut"""
-    )
-
     use_strategy_method = models.BooleanField(
-        doc="""Whether this group uses strategy method""",
-        default=False
+        doc="""Whether this group uses strategy method"""
     )
 
     amount_offered = models.CurrencyField(choices=Constants.offer_choices)
@@ -68,7 +59,7 @@ class Group(BaseGroup):
     )
 
     # for strategy method, see the make_field function above
-    response_0  = make_field(0)
+    response_0 = make_field(0)
     response_10 = make_field(10)
     response_20 = make_field(20)
     response_30 = make_field(30)
@@ -83,15 +74,6 @@ class Group(BaseGroup):
 
     def set_payoffs(self):
         p1, p2 = self.get_players()
-
-        if self.global_timeout_happened:
-            # p1.payoff = Constants.payoff_showup
-            # p2.payoff = Constants.payoff_showup
-            if p1.participant.vars['global_timeout']:
-                p2.payoff = Constants.payoff_if_rejected
-            else:
-                p1.payoff = Constants.payoff_if_rejected
-            return
 
         if self.use_strategy_method:
             self.offer_accepted = getattr(self, 'response_{}'.format(

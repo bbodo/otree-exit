@@ -37,7 +37,7 @@ class DecorateIsDisplayMixin(object):
                 return game_condition and not self.player.participant.vars.get('go_to_the_end',
                                                                                False) and not self.player.participant.vars.get('skip_the_end_of_app_{}'.format(app_name),
                                                                                False) and not self.player.participant.vars.get('skip_the_end_of_app_{}_round_{}'.format(app_name , round_number),
-                                                                               False) 
+                                                                               False) and not self.player.participant.vars.get('dropout', False)
 
             return decorated_is_display
 

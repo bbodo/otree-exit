@@ -12,7 +12,7 @@ A simple information and consent page where subjects can only continue if they c
 
 
 class Constants(BaseConstants):
-    name_in_url = 'consent_mturk'
+    name_in_url = 'mturk_consent'
     players_per_group = None
     num_rounds = 1
 

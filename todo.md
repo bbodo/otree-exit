@@ -5,13 +5,17 @@
 - [x] Investigate payoffs, looks like they are doubled 
 - [x] create final results screen with total payoff 
 - [x] remove pycrypodome dependency
-- [ ] **change timers**
+- [x] **change timers**
 - [ ] **change password to be set by environmental variable**
----
-- [ ] future hack: dropout / online detection
+- [ ] disable debug / set study mode
+- [ ] scale-up/down scripts
+- [x] dropout handling and rerouting <br> lame version: timer timeout=dropout
+  - [ ] future hack: online detection
+- [ ] test psotree
 
 ---
-## Screen Layout
+## Screen Layout / URLs
+- [x] Properly rename the games
 
 - [x] Screen Consent: 
   - [x] Provide Consent Text 

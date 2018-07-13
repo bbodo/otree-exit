@@ -1,0 +1,17 @@
+{% extends "global/Base.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+    End of Study
+{% endblock %}
+
+{% block content %}
+    <p>
+
+        Someone in your group has timed out of the study. You will be redirected to the checkout page.
+    <br><br>
+    {% next_button %}
+
+
+{% endblock %}
+

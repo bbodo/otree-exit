@@ -21,7 +21,7 @@ class Constants(BaseConstants):
     name_in_url = 'mturk_grouping'
     players_per_group = 2
     num_rounds = 1
-    timer_seconds = 20
+    timer_seconds = 5 * 60
 
 
 class Subsession(BaseSubsession):

@@ -19,12 +19,13 @@ class ConsentPage(Page):
             self.player.consent = False
             self.player.is_dropout = True
             self.player.participant.vars['dropout'] = True
+            self.participant.vars['go_to_the_end'] = True
             self.player.participant.vars['consent_dropout'] = True
 
 
 class BlockDropouts(Page):
     def is_displayed(self):
-        return self.round_number == 1 and self.player.participant.vars.get('consent_dropout', False)
+        return self.round_number == 1 and self.player.participant.vars.get('dropout', False)
         
 
 

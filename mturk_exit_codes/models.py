@@ -16,7 +16,7 @@ in the project directory
 # json_data = ""
 
 class Constants(BaseConstants):
-	name_in_url = 'exit_codes'
+	name_in_url = 'mturk_exit_codes'
 	players_per_group = None
 	num_rounds = 1
 

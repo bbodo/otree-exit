@@ -7,7 +7,7 @@
 - [x] remove pycrypodome dependency
 - [x] **change timers**
 - [x] **change password to be set by environmental variable**
-- [ ] disable debug / set study mode
+- [x] disable debug / set study mode (via env config in heroku)
 - [ ] scale-up/down scripts
 - [x] dropout handling and rerouting <br> lame version: timer timeout=dropout
   - [ ] future hack: online detection

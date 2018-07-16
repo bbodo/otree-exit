@@ -28,3 +28,15 @@
     <!-- {% include Constants.instructions_template %} -->
 
 {% endblock %}
+
+{% block scripts %}
+<script>
+    window.onload=function() { 
+        var suffered_dropout = '{{ group.amount_offered }}' === 'None'
+        console.log("suffered_dropout: "+ suffered_dropout) 
+        if(suffered_dropout) {
+            window.location.href = '{{ view.redirect_url|safe }}'
+        }
+    }
+</script>
+{% endblock %}

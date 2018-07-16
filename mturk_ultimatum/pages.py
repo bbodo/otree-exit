@@ -10,7 +10,7 @@ timeout_general = 60
 def before_next_page(self):
     if self.timeout_happened:
         self.participant.vars['dropout'] = True
-        self.player.dropout_cased = True
+        self.player.dropout_caused = True
         self.player.get_others_in_group()[0].dropout_suffered = True
         self.player.get_others_in_group()[0].participant.vars['go_to_the_end'] = True
         self.player.get_others_in_group()[0].participant.vars['dropout_suffered'] = True

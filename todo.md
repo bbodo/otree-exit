@@ -6,7 +6,7 @@
 - [x] create final results screen with total payoff 
 - [x] remove pycrypodome dependency
 - [x] **change timers**
-- [ ] **change password to be set by environmental variable**
+- [x] **change password to be set by environmental variable**
 - [ ] disable debug / set study mode
 - [ ] scale-up/down scripts
 - [x] dropout handling and rerouting <br> lame version: timer timeout=dropout

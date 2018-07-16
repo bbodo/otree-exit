@@ -20,8 +20,8 @@ else:
 ADMIN_USERNAME = 'admin'
 
 # for security, best to set admin password in an environment variable
-# ADMIN_PASSWORD = environ.get('OTREE_ADMIN_PASSWORD')
-ADMIN_PASSWORD = 'blub'
+ADMIN_PASSWORD = environ.get('OTREE_ADMIN_PASSWORD', 'blub')
+# ADMIN_PASSWORD = 'blub'
 
 # don't share this with anybody.
 SECRET_KEY = 'klvw%!6@b+f1*39izl!amea_!vf-ax06hv73$k0=3-5ggz9*9-'

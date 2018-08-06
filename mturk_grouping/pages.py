@@ -28,15 +28,14 @@ class GroupingWP(CustomMturkWaitPage):
     # startwp_timer = session.vars['wait_time']
     use_task = False
     startwp_timer = Constants.timer_seconds
-    def set_timer(self):
-        if self.session.vars.get('wait_time'):
-            return self.session.vars['wait_time']
-        else:
-            return self.startwp_timer
-    def is_displayed(self):
-        self.startwp_timer = self.set_timer()
-        startwp_timer = self.set_timer()
-        return True
+    # def set_timer(self):
+    #     if self.session.vars.get('wait_time'):
+    #         return self.session.vars['wait_time']
+    #     else:
+    #         return self.startwp_timer
+    # def is_displayed(self):
+    #     self.startwp_timer = self.set_timer()
+    #     return True
 
 
 

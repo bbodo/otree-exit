@@ -67,7 +67,7 @@ class Offer(CustomMturkPage):
 class WaitForProposer(WaitPage):
     # template_name = "ultimatum_mturk_chap/Grouping.html"
     startwp_timer = timeout_general
-    timer_text = "Maximum wait time left: "
+    # timer_text = "Maximum wait time left: "
     
     def is_displayed(self):
         app_name = self.subsession._meta.app_label

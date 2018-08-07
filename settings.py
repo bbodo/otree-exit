@@ -47,8 +47,7 @@ DATABASES = {
 # to DEMO. This will allow people to play in demo mode, but not access
 # the full admin interface.
 
-# AUTH_LEVEL = environ.get('OTREE_AUTH_LEVEL')
-AUTH_LEVEL = "STUDY"
+AUTH_LEVEL = environ.get('OTREE_AUTH_LEVEL')
 
 # setting for integration with AWS Mturk
 AWS_ACCESS_KEY_ID = environ.get('AWS_ACCESS_KEY_ID')

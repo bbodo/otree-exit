@@ -171,16 +171,6 @@ SESSION_CONFIGS = [
         'num_demo_participants': 2,
         'app_sequence': ['ultimatum_original',],
     },
-    {
-        'name': 'ultimatum_50p',
-        'num_demo_participants': 50,
-        'display_name': "Ultimatum Test (For Browser Bots)",
-        'app_sequence': ['ultimatum_original'],
-        'use_browser_bots': True,
-        'real_world_currency_per_point': 0.002,
-        'participation_fee': 1,
-        'use_strategy_method': False,
-    },
 ]
 
 CHANNEL_ROUTING = 'routing.channel_routing'

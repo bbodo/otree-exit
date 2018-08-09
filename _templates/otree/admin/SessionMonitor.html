@@ -141,7 +141,10 @@ function ajax_json_participants() {
                         continue;
                     }
                     var delta = deltas[i];
-                    var rowSelector = 'tr:eq(' + i + ')';
+                    {# CUSTOM CODE: #}
+                    var ID_in_session = 'P'+(parseInt(i)+1).toString()
+                    i = $("td[data-field='_id_in_session']:contains('" + ID_in_session + "')").parent().index();
+                    rowSelector = 'tr:eq(' + i + ')';
                     var nthBodyRow = $tbody.find(rowSelector);
                     // Array means an insertion
                     if (delta.constructor === Array) {
@@ -176,7 +179,7 @@ function ajax_json_participants() {
     function AdvanceParticipantByID(who) {
         participant_id = who.attr('id')
         console.log('Clicked on user: ' + participant_id);
-        sendmessage(who)
+        sendmessage(who);
         flashGreen($('#' + participant_id).parent())
     };
 
@@ -201,8 +204,8 @@ function ajax_json_participants() {
             }
             html += '<td data-field="' + key + '" title="' + value + '">' + value + '</td>';
         }
-        // CUSTOM CODE:
-        html += '<td> <a id="' + json.code + '" class="advance_this_user btn btn-primary" role="button" onclick="AdvanceParticipantByID($(this))">>></a> </td>';
+        {# CUSTOM CODE #}
+        html += '<td> <a id="' + json.code + '" class="advance_this_user btn btn-primary" role="button" onclick="AdvanceParticipantByID($(this))"> >> </a> </td>';
 
         html += '</tr>';
         return html;

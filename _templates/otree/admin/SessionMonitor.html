@@ -7,7 +7,7 @@
         <thead>
         <tr>
             {% for header in column_names %}
-                <th>{{ header }}</th>
+                <th onclick="sortTable({{ forloop.counter0 }}, 'monitor-table')">{{ header }}</th>
             {% endfor %} {# CUSTOM CODE: #} <th>Advance user</th>
         </tr>
         </thead>
@@ -171,6 +171,7 @@ function ajax_json_participants() {
 </script>
 
 {# CUSTOM CODE #} {% include 'global/SessionMonitor_channel.js.html' %}
+                    {% include 'global/sortTable.js.html' %}
 <script>
     function AdvanceParticipantByID(who) {
         participant_id = who.attr('id')

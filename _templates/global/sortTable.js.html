@@ -18,6 +18,10 @@ function sortTable(n, tableId) {
       shouldSwitch = false;
       /*Get the two elements you want to compare,
       one from current row and one from the next:*/
+
+      /* relevant if f ordering by _id_in_subsession in oTree:
+         if any of the current rows is "Px", where x in 0-9,
+         replace with "P0x", so P1 (=P01) is before P10 */  
       x = rows[i].getElementsByTagName("TD")[n];
       if (/^P[0-9]$/.test(x.innerHTML)) {
         x.innerHTML = 'P0'+x.innerHTML[x.innerHTML.length-1];
@@ -26,6 +30,8 @@ function sortTable(n, tableId) {
       if (/^P[0-9]$/.test(x.innerHTML)) {
         x.innerHTML = 'P0'+x.innerHTML[x.innerHTML.length-1];
       }
+
+
       /*check if the two rows should switch place,
       based on the direction, asc or desc:*/
       if (dir == "asc") {

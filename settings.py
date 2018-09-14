@@ -6,7 +6,6 @@ from boto.mturk import qualification
 
 import otree.settings
 
-
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 SITE_ROOT = os.path.abspath(os.path.dirname(__file__))
 
@@ -18,10 +17,8 @@ else:
     DEBUG = True
 
 ADMIN_USERNAME = 'admin'
-
 # for security, best to set admin password in an environment variable
-ADMIN_PASSWORD = environ.get('OTREE_ADMIN_PASSWORD', 'blub')
-# ADMIN_PASSWORD = 'blub'
+ADMIN_PASSWORD = environ.get('OTREE_ADMIN_PASSWORD')
 
 # don't share this with anybody.
 SECRET_KEY = 'klvw%!6@b+f1*39izl!amea_!vf-ax06hv73$k0=3-5ggz9*9-'
@@ -121,9 +118,6 @@ ROOMS = [
     },
 ]
 
-
-
-
 SESSION_CONFIGS = [
     # {
     #     'name': '...',
@@ -178,7 +172,6 @@ CHANNEL_ROUTING = 'routing.channel_routing'
 EXTENSION_APPS = [
     'otree_mturk_utils',
 ]
-
 
 # anything you put after the below line will override
 # oTree's default settings. Use with caution.

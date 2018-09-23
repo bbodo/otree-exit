@@ -7,7 +7,8 @@ class BasePage(Page):
         return self.session.config.get('timeout_seconds', 30)
 
 class Introduction(BasePage):
-    pass
+    def is_displayed(self):
+        self.round_number == 1
 
 
 class Offer(BasePage):

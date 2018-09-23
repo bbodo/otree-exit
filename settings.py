@@ -11,10 +11,10 @@ SITE_ROOT = os.path.abspath(os.path.dirname(__file__))
 
 # the environment variable OTREE_PRODUCTION controls whether Django runs in
 # DEBUG mode. If OTREE_PRODUCTION==1, then DEBUG=False
-if environ.get('OTREE_PRODUCTION') not in {None, '', '0'}:
-    DEBUG = False
-else:
+if environ.get('OTREE_PRODUCTION', '0') in {None, '', '0'}:
     DEBUG = True
+else:
+    DEBUG = False
 
 ADMIN_USERNAME = 'admin'
 # for security, best to set admin password in an environment variable

@@ -6,7 +6,6 @@ from boto.mturk import qualification
 
 import otree.settings
 
-
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 SITE_ROOT = os.path.abspath(os.path.dirname(__file__))
 
@@ -18,10 +17,17 @@ else:
     DEBUG = True
 
 ADMIN_USERNAME = 'admin'
-
 # for security, best to set admin password in an environment variable
-ADMIN_PASSWORD = environ.get('OTREE_ADMIN_PASSWORD', 'blub')
-# ADMIN_PASSWORD = 'blub'
+ADMIN_PASSWORD = environ.get('OTREE_ADMIN_PASSWORD')
+
+
+# Override static URL from environmental variables
+if environ.get('STATIC_URL') not in {None, ''}:
+   STATIC_URL = environ.get('STATIC_URL')
+
+if environ.get('REDIS_URL') not in {None, ''}:
+   REDIS_URL = environ.get('REDIS_URL')
+
 
 # don't share this with anybody.
 SECRET_KEY = 'klvw%!6@b+f1*39izl!amea_!vf-ax06hv73$k0=3-5ggz9*9-'
@@ -37,6 +43,8 @@ DATABASES = {
         default='sqlite:///' + os.path.join(BASE_DIR, 'db.sqlite3')
     )
 }
+
+
 
 # AUTH_LEVEL:
 # If you are launching a study and want visitors to only be able to
@@ -121,9 +129,6 @@ ROOMS = [
     },
 ]
 
-
-
-
 SESSION_CONFIGS = [
     # {
     #     'name': '...',
@@ -169,6 +174,7 @@ SESSION_CONFIGS = [
         'name': 'ultimatum',
         'display_name': "Ultimatum",
         'num_demo_participants': 2,
+        'use_browser_bots': False,
         'app_sequence': ['ultimatum_original',],
         'use_browser_bots': False,
         'timeout_seconds': 10,
@@ -180,7 +186,6 @@ CHANNEL_ROUTING = 'routing.channel_routing'
 EXTENSION_APPS = [
     'otree_mturk_utils',
 ]
-
 
 # anything you put after the below line will override
 # oTree's default settings. Use with caution.

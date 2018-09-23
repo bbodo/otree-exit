@@ -9,12 +9,9 @@ import otree.settings
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 SITE_ROOT = os.path.abspath(os.path.dirname(__file__))
 
-# the environment variable OTREE_PRODUCTION controls whether Django runs in
-# DEBUG mode. If OTREE_PRODUCTION==1, then DEBUG=False
-if environ.get('OTREE_PRODUCTION', '0') in {None, '', '0'}:
-    DEBUG = True
-else:
-    DEBUG = False
+# the env var OTREE_PRODUCTION controls whether Django runs in DEBUG mode.
+# Consider '', None, and '0' to be empty/false
+DEBUG = (environ.get('OTREE_PRODUCTION') in {None, '', '0'})
 
 ADMIN_USERNAME = 'admin'
 # for security, best to set admin password in an environment variable

@@ -170,7 +170,7 @@ SESSION_CONFIGS = [
         'display_name': "Ultimatum",
         'num_demo_participants': 2,
         'app_sequence': ['ultimatum_original',],
-        'use_browser_bots': True,
+        'use_browser_bots': False,
         'timeout_seconds': 10,
     },
 ]

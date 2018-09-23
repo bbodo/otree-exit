@@ -158,7 +158,7 @@ SESSION_CONFIGS = [
         'use_strategy_method': False,
         'doc': """
         To set group size and wait time, you need to change these values in their 
-        respective places in each relevant app.
+        respective places in each relevant app.<br>
         ########################################################################
         """
     },
@@ -172,12 +172,16 @@ SESSION_CONFIGS = [
     },
     {
         'name': 'ultimatum',
-        'display_name': "Ultimatum",
+        'display_name': "Ultimatum (Stress Testing)",
         'num_demo_participants': 2,
         'use_browser_bots': False,
         'app_sequence': ['ultimatum_original',],
-        'use_browser_bots': False,
         'timeout_seconds': 10,
+        'doc': """
+        This is the original otree ultimatum game, with slight edits:<br>
+        - timeout_seconds sets the timer for each page. <br>
+        - the game runs for 5 rounds
+        """
     },
 ]
 

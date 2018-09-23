@@ -15,7 +15,7 @@ In the latter treatment, the second player is given a list of all possible offer
 class Constants(BaseConstants):
     name_in_url = 'ultimatum_original'
     players_per_group = 2
-    num_rounds = 1
+    num_rounds = 5
 
     instructions_template = name_in_url+'/Instructions.html'
 
